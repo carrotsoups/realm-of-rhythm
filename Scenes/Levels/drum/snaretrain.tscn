@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://bds6ij3xeo6vu"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/drum/snaretrain.gd" id="1_aub73"]
+[ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="2_1soak"]
+[ext_resource type="AudioStream" uid="uid://bik56ctlq1tcc" path="res://Assets/Music/drumset/snare.mp3" id="3_jasff"]
+[ext_resource type="Texture2D" uid="uid://clubuhnf4hswr" path="res://Assets/Sprites/drumworld/drumnotes.png" id="4_i331y"]
+[ext_resource type="Script" path="res://Scenes/Levels/drum/path_2d.gd" id="5_4kvl2"]
+[ext_resource type="Texture2D" uid="uid://1atn8di0d2dn" path="res://Assets/Sprites/drumworld/bar.png" id="6_q4dl7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2fv1"]
+load_path = "res://.godot/imported/drumnotes.png-a2fd817e46c115973aa92aa6ed7870ff.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxnl7"]
+texture = SubResource("CompressedTexture2D_k2fv1")
+texture_region_size = Vector2i(7, 17)
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_063rm"]
+sources/0 = SubResource("TileSetAtlasSource_hxnl7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm8o7"]
+texture = ExtResource("4_i331y")
+texture_region_size = Vector2i(7, 17)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.82843, -8, 3.25, -9.125, 3.5, 8, -3.5, 8)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.25, -18, 3.5, -17.25, 3.375, 3.875, -3.625, 4.125)
+
+[sub_resource type="TileSet" id="TileSet_3okhc"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_pm8o7")
+
+[sub_resource type="Curve2D" id="Curve2D_ypg7n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 0)
+}
+point_count = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4qm7"]
+size = Vector2(16.473, 99.8633)
+
+[node name="Snaretrain" type="Node2D"]
+script = ExtResource("1_aub73")
+
+[node name="staff" type="Node2D" parent="."]
+position = Vector2(-84, -64)
+scale = Vector2(2.0106, 2.03397)
+
+[node name="staff" type="Sprite2D" parent="staff"]
+texture = ExtResource("2_1soak")
+
+[node name="staff2" type="Sprite2D" parent="staff"]
+position = Vector2(120, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff3" type="Sprite2D" parent="staff"]
+position = Vector2(240, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff4" type="Sprite2D" parent="staff"]
+position = Vector2(360, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff5" type="Sprite2D" parent="staff"]
+position = Vector2(480, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff6" type="Sprite2D" parent="staff"]
+position = Vector2(600, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff7" type="Sprite2D" parent="staff"]
+position = Vector2(720, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff8" type="Sprite2D" parent="staff"]
+position = Vector2(840, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff9" type="Sprite2D" parent="staff"]
+position = Vector2(960, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff10" type="Sprite2D" parent="staff"]
+position = Vector2(1080, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="staff11" type="Sprite2D" parent="staff"]
+position = Vector2(1200, 0)
+rotation = -3.14159
+texture = ExtResource("2_1soak")
+
+[node name="snare" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jasff")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="staff" type="TileMapLayer" parent="TileMap"]
+position = Vector2(8, 4)
+scale = Vector2(2.01377, 2.01377)
+tile_set = SubResource("TileSet_063rm")
+
+[node name="notes" type="TileMapLayer" parent="TileMap"]
+position = Vector2(9, 20)
+scale = Vector2(2.01377, 2.01377)
+tile_set = SubResource("TileSet_3okhc")
+
+[node name="notes" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-84, -64)
+scale = Vector2(2.0106, 2.03397)
+curve = SubResource("Curve2D_ypg7n")
+script = ExtResource("5_4kvl2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-50, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+position = Vector2(55.7049, 45.2318)
+rotation = -0.0796891
+scale = Vector2(0.497328, 0.491687)
+skew = -0.00185537
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Path2D/PathFollow2D/Camera2D"]
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D/RigidBody2D"]
+position = Vector2(39.8323, -89.0819)
+rotation = 0.066958
+scale = Vector2(3, 3)
+texture = ExtResource("6_q4dl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Camera2D/RigidBody2D"]
+position = Vector2(0.511284, -102.222)
+rotation = 0.0730051
+shape = SubResource("RectangleShape2D_d4qm7")
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
+offset_left = 74.5487
+offset_top = -22.0688
+offset_right = 114.549
+offset_bottom = 17.9312
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
+offset_left = 74.5487
+offset_top = -22.0688
+offset_right = 114.549
+offset_bottom = 17.9312
+color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/Camera2D/RigidBody2D" to="." method="_on_rigid_body_2d_body_exited"]

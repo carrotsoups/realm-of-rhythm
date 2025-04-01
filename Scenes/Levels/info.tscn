@@ -1,0 +1,179 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs5h1dtetjil6"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/info.gd" id="1_0bf16"]
+[ext_resource type="FontFile" uid="uid://be0d5ywm7w5lq" path="res://Assets/Fonts/PixelRPG.ttf" id="2_65354"]
+[ext_resource type="Texture2D" uid="uid://bt20v461dbbw6" path="res://Assets/Sprites/Battle/under.png" id="3_0s3ld"]
+[ext_resource type="Texture2D" uid="uid://dnykljxe3ujns" path="res://Assets/Sprites/Battle/fill.png" id="4_201y0"]
+[ext_resource type="Texture2D" uid="uid://cqsymry6behbj" path="res://Assets/Sprites/xpfill.png" id="5_nclxj"]
+[ext_resource type="Texture2D" uid="uid://dlya668e5h0uq" path="res://Assets/Sprites/drumworld/drumcymbal.png" id="6_1htkp"]
+[ext_resource type="Texture2D" uid="uid://ovtxllwrfno5" path="res://Assets/Sprites/drumworld/drumsuptoms.png" id="7_ipa1l"]
+[ext_resource type="Texture2D" uid="uid://cp6edbxygmwbo" path="res://Assets/Sprites/drumworld/drumbass.png" id="8_85xxc"]
+[ext_resource type="Texture2D" uid="uid://fri8t7wdq1sw" path="res://Assets/Sprites/drumworld/drumsnare.png" id="9_vpi34"]
+[ext_resource type="Texture2D" uid="uid://cf6daq577po4s" path="res://Assets/Sprites/drumworld/drumfloortom.png" id="10_uhfus"]
+[ext_resource type="Texture2D" uid="uid://cffd8hs31q4fh" path="res://Assets/Sprites/drumworld/drumhihat.png" id="11_raaiy"]
+[ext_resource type="Texture2D" uid="uid://b2h854xvgkyx0" path="res://Assets/Sprites/pianoworld/pienio.png" id="12_rabcc"]
+
+[node name="Info" type="Node2D"]
+scale = Vector2(0.588653, 0.588653)
+script = ExtResource("1_0bf16")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 68.0
+offset_bottom = 67.0
+scale = Vector2(4.97297, 7)
+color = Color(0.82, 0.786107, 0.5658, 1)
+
+[node name="info" type="Node2D" parent="."]
+position = Vector2(20.3855, 27.1807)
+
+[node name="Level" type="Label" parent="info"]
+offset_top = 6.79518
+offset_right = 170.0
+offset_bottom = 67.7952
+theme_override_colors/font_color = Color(0.14, 0.105, 0, 1)
+theme_override_fonts/font = ExtResource("2_65354")
+theme_override_font_sizes/font_size = 60
+
+[node name="HP" type="Label" parent="info"]
+offset_left = 6.79518
+offset_top = 95.1325
+offset_right = 56.7952
+offset_bottom = 126.133
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_65354")
+theme_override_font_sizes/font_size = 30
+text = "HP: 
+"
+
+[node name="PlayerHPBar" type="TextureProgressBar" parent="info/HP"]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 61.1566
+offset_top = 6.79518
+offset_right = 113.157
+offset_bottom = 13.7952
+scale = Vector2(4.46846, 2.70014)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("3_0s3ld")
+texture_progress = ExtResource("4_201y0")
+texture_progress_offset = Vector2(2, 2)
+
+[node name="ratio" type="Label" parent="info/HP"]
+layout_mode = 0
+offset_left = 149.494
+offset_top = -13.5904
+offset_right = 189.494
+offset_bottom = 9.40965
+
+[node name="Exp" type="Label" parent="info"]
+offset_left = 6.79518
+offset_top = 156.289
+offset_right = 81.7952
+offset_bottom = 187.289
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_65354")
+theme_override_font_sizes/font_size = 30
+text = "XP: "
+
+[node name="PlayerXPBar" type="TextureProgressBar" parent="info/Exp"]
+layout_mode = 0
+offset_left = 67.9518
+offset_top = 13.5904
+offset_right = 195.952
+offset_bottom = 21.5904
+scale = Vector2(1.6818, 1.6818)
+value = 100.0
+texture_progress = ExtResource("5_nclxj")
+
+[node name="ratio" type="Label" parent="info/Exp"]
+layout_mode = 0
+offset_left = 156.289
+offset_top = -6.79518
+offset_right = 196.289
+offset_bottom = 16.2048
+
+[node name="cymbal" type="Label" parent="info"]
+offset_left = 20.3855
+offset_top = 217.446
+offset_right = 67.3855
+offset_bottom = 240.446
+text = "sdvfvf"
+
+[node name="cymbal" type="Sprite2D" parent="info/cymbal"]
+position = Vector2(27.1807, 13.5904)
+scale = Vector2(0.241581, 0.241581)
+texture = ExtResource("6_1htkp")
+
+[node name="uptoms" type="Label" parent="info"]
+offset_left = 108.723
+offset_top = 231.036
+offset_right = 155.723
+offset_bottom = 254.036
+text = "sdvfvf"
+
+[node name="uptoms" type="Sprite2D" parent="info/uptoms"]
+position = Vector2(27.1807, 6.79517)
+scale = Vector2(0.352921, 0.362059)
+texture = ExtResource("7_ipa1l")
+
+[node name="bass" type="Label" parent="info"]
+offset_left = 258.217
+offset_top = 210.65
+offset_right = 305.217
+offset_bottom = 233.65
+text = "sdvfvf"
+
+[node name="bass" type="Sprite2D" parent="info/bass"]
+position = Vector2(-27.1807, -13.5903)
+scale = Vector2(0.398626, 0.398626)
+texture = ExtResource("8_85xxc")
+
+[node name="snare" type="Label" parent="info"]
+offset_left = -6.79515
+offset_top = 319.373
+offset_right = 40.2048
+offset_bottom = 342.373
+text = "sdvfvf"
+
+[node name="snare" type="Sprite2D" parent="info/snare"]
+position = Vector2(-6.79517, -20.3855)
+scale = Vector2(0.327231, 0.327231)
+texture = ExtResource("9_vpi34")
+
+[node name="floortom" type="Label" parent="info"]
+offset_left = 115.518
+offset_top = 319.373
+offset_right = 162.518
+offset_bottom = 342.373
+text = "sdvfvf"
+
+[node name="floortom" type="Sprite2D" parent="info/floortom"]
+position = Vector2(61.1566, -33.9759)
+scale = Vector2(0.463135, 0.463135)
+texture = ExtResource("10_uhfus")
+
+[node name="hihat" type="Label" parent="info"]
+offset_left = 237.831
+offset_top = 298.988
+offset_right = 284.831
+offset_bottom = 321.988
+text = "sdvfvf"
+
+[node name="hihat" type="Sprite2D" parent="info/hihat"]
+position = Vector2(-54.3614, 6.79517)
+scale = Vector2(0.327231, 0.327231)
+texture = ExtResource("11_raaiy")
+
+[node name="piano" type="Label" parent="info"]
+offset_left = 2.3365e-05
+offset_top = 394.12
+offset_right = 47.0
+offset_bottom = 417.12
+text = "sdvfvf"
+
+[node name="piano" type="Sprite2D" parent="info/piano"]
+position = Vector2(20.3855, -6.79518)
+scale = Vector2(0.189117, 0.137517)
+texture = ExtResource("12_rabcc")

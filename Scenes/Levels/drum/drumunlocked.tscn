@@ -1,0 +1,203 @@
+[gd_scene load_steps=21 format=3 uid="uid://b4ftvj7oyjwqp"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/drum/drumunlocked.gd" id="1_vdrkf"]
+[ext_resource type="Texture2D" uid="uid://c8ljpxvyxvlqp" path="res://Assets/Sprites/drumworld/tiles.png" id="2_5ynjn"]
+[ext_resource type="Texture2D" uid="uid://dm8oiod478k0v" path="res://Assets/Sprites/drumworld/set.png" id="3_smn2b"]
+[ext_resource type="Texture2D" uid="uid://dpbfcili5n2ub" path="res://Assets/Sprites/hihat.png" id="4_8ke10"]
+[ext_resource type="Texture2D" uid="uid://dr4aq24sjwsmi" path="res://Assets/Sprites/drumworld/uptoms.png" id="5_1tctt"]
+[ext_resource type="Texture2D" uid="uid://cknuw1k7nk8v5" path="res://Assets/Sprites/drumworld/snare.png" id="6_qbirt"]
+[ext_resource type="Texture2D" uid="uid://djprryimrs1b5" path="res://Assets/Sprites/drumworld/hiddenbassdrum.png" id="7_rxudn"]
+[ext_resource type="Texture2D" uid="uid://c8ms5aelt8kl2" path="res://Assets/Sprites/drumworld/hiddenfloortom.png" id="8_emqfx"]
+[ext_resource type="Texture2D" uid="uid://hy7hr507cnnn" path="res://Assets/Sprites/drumworld/cymbal.png" id="9_y0a7a"]
+[ext_resource type="AudioStream" uid="uid://ct7105knkqcs7" path="res://Assets/Music/drumset/cymbal.mp3" id="10_e40j3"]
+[ext_resource type="AudioStream" uid="uid://dmcv6udscahno" path="res://Assets/Music/drumset/hihat.mp3" id="11_7md0a"]
+[ext_resource type="AudioStream" uid="uid://bik56ctlq1tcc" path="res://Assets/Music/drumset/snare.mp3" id="12_fhx6k"]
+[ext_resource type="AudioStream" uid="uid://bpohcnm73ttae" path="res://Assets/Music/drumset/bass.mp3" id="13_jo2vs"]
+[ext_resource type="AudioStream" uid="uid://cmgsdtvr5sodh" path="res://Assets/Music/drumset/hightom.mp3" id="14_b3gg0"]
+[ext_resource type="AudioStream" uid="uid://2nr3sa4765vs" path="res://Assets/Music/drumset/medtom.mp3" id="15_drr8c"]
+[ext_resource type="AudioStream" uid="uid://dytsj8eraai7l" path="res://Assets/Music/drumset/floortom.mp3" id="15_gson8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyr5g"]
+texture = ExtResource("2_5ynjn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e8vyx"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_yyr5g")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdy0o"]
+texture = ExtResource("2_5ynjn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h178h"]
+sources/0 = SubResource("TileSetAtlasSource_jdy0o")
+
+[node name="Drumunlocked" type="Node2D"]
+script = ExtResource("1_vdrkf")
+
+[node name="images" type="TileMap" parent="."]
+position = Vector2(2.6091, -32.6475)
+scale = Vector2(0.738861, 0.816189)
+format = 2
+
+[node name="outline" type="TileMapLayer" parent="images"]
+tile_set = SubResource("TileSet_e8vyx")
+
+[node name="background" type="TileMapLayer" parent="images"]
+tile_set = SubResource("TileSet_h178h")
+
+[node name="drumset" type="Sprite2D" parent="images"]
+position = Vector2(8, 40)
+scale = Vector2(1.25413, 1.25413)
+texture = ExtResource("3_smn2b")
+
+[node name="hihat" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(-3.53124, 40)
+scale = Vector2(1.35343, 1.22521)
+texture = ExtResource("4_8ke10")
+
+[node name="uptoms" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(8, 36)
+scale = Vector2(1.35343, 1.22521)
+texture = ExtResource("5_1tctt")
+
+[node name="snare" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(-3.53124, 40)
+scale = Vector2(1.35343, 1.22521)
+texture = ExtResource("6_qbirt")
+
+[node name="bass" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(8, 40)
+scale = Vector2(1.22521, 1.22521)
+texture = ExtResource("7_rxudn")
+
+[node name="floortom" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(8, 40)
+scale = Vector2(1.22521, 1.22521)
+texture = ExtResource("8_emqfx")
+
+[node name="cymbal" type="Sprite2D" parent="images"]
+visible = false
+position = Vector2(4, 36)
+scale = Vector2(1.22521, 1.22521)
+texture = ExtResource("9_y0a7a")
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="cymbal" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("10_e40j3")
+
+[node name="hihat" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("11_7md0a")
+
+[node name="snare" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("12_fhx6k")
+
+[node name="bass" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("13_jo2vs")
+
+[node name="hightom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("14_b3gg0")
+
+[node name="medtom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("15_drr8c")
+
+[node name="floortom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("15_gson8")
+
+[node name="labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bass" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 20.0
+offset_right = 12.0
+offset_bottom = 104.0
+scale = Vector2(1.74981, 1.33366)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 61
+text = "S"
+
+[node name="cymbal" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -144.0
+offset_right = -72.0
+offset_bottom = -94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Q"
+
+[node name="hihat" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = -96.0
+offset_right = 168.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 43
+text = "R"
+
+[node name="floortom" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -32.0
+offset_right = -44.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "A"
+
+[node name="snare" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = -16.0
+offset_right = 120.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "D"
+
+[node name="medtom" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -100.0
+offset_right = 88.0
+offset_bottom = -53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+
+[node name="hightom" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -100.0
+offset_right = -20.0
+offset_bottom = -58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "W"

@@ -1,0 +1,432 @@
+[gd_scene load_steps=40 format=3 uid="uid://u0utaxft0bf1"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/piano/play_button.gd" id="1_210x1"]
+[ext_resource type="Texture2D" uid="uid://dp4xdepo6eiop" path="res://Assets/Sprites/pianoworld/music button.png" id="2_2cx7e"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="3_w1m6g"]
+[ext_resource type="AudioStream" uid="uid://dv0fy5x7ojllk" path="res://Assets/Music/pianonotes/f3.mp3" id="4_hkuqe"]
+[ext_resource type="AudioStream" uid="uid://47wxo3k63r5b" path="res://Assets/Music/pianonotes/g3.mp3" id="5_s2t54"]
+[ext_resource type="AudioStream" uid="uid://ct3teauygs3va" path="res://Assets/Music/pianonotes/a4.mp3" id="6_26wle"]
+[ext_resource type="AudioStream" uid="uid://dgglnhv8j3thd" path="res://Assets/Music/pianonotes/b4.mp3" id="7_nppup"]
+[ext_resource type="AudioStream" uid="uid://c5m43xh084wnb" path="res://Assets/Music/pianonotes/c4.mp3" id="8_0klue"]
+[ext_resource type="AudioStream" uid="uid://c7v36mmgh5y72" path="res://Assets/Music/pianonotes/d4.mp3" id="9_ixy0r"]
+[ext_resource type="AudioStream" uid="uid://bpaupdtre0kmg" path="res://Assets/Music/pianonotes/e4.mp3" id="10_3ofwb"]
+[ext_resource type="AudioStream" uid="uid://muq7hljn1xbs" path="res://Assets/Music/pianonotes/f4.mp3" id="11_ung6o"]
+[ext_resource type="AudioStream" uid="uid://beef6ukipihh1" path="res://Assets/Music/pianonotes/g4.mp3" id="12_odcai"]
+[ext_resource type="AudioStream" uid="uid://dna06jslk6dpi" path="res://Assets/Music/pianonotes/a5.mp3" id="13_6ewgj"]
+[ext_resource type="Texture2D" uid="uid://7ec2028ocwrn" path="res://Assets/Sprites/pianoworld/piano tile sound animation.png" id="14_mseva"]
+[ext_resource type="Texture2D" uid="uid://b2pnqj4qps8jy" path="res://Assets/Sprites/pianoworld/lightup.png" id="15_h5wgw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxa4j"]
+radius = 33.0151
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tka0v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54n7m"]
+radius = 391.659
+height = 1281.11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55ftd"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3ety"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3st"]
+size = Vector2(30, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj5o8"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r76e0"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c1x3"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un1yt"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4yil"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4m4r"]
+size = Vector2(30, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaji3"]
+size = Vector2(30.5, 74.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc8w3"]
+atlas = ExtResource("14_mseva")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk105"]
+atlas = ExtResource("14_mseva")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ow7e"]
+atlas = ExtResource("14_mseva")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa2yk"]
+atlas = ExtResource("14_mseva")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf328"]
+atlas = ExtResource("14_mseva")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t87kr"]
+atlas = ExtResource("14_mseva")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26kdi"]
+atlas = ExtResource("14_mseva")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7f1q"]
+atlas = ExtResource("14_mseva")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2e8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc8w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk105")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ow7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa2yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf328")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t87kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26kdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7f1q")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgm0x"]
+atlas = ExtResource("15_h5wgw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_guc4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgm0x")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="play_button" type="Area2D"]
+script = ExtResource("1_210x1")
+
+[node name="areacolide" type="CollisionShape2D" parent="."]
+position = Vector2(165, 207)
+shape = SubResource("CircleShape2D_vxa4j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(164, 204)
+scale = Vector2(0.0405895, 0.0408514)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_tka0v")
+
+[node name="playbutton" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-0.000167847, -97.9162)
+scale = Vector2(12.4941, 12.4941)
+texture = ExtResource("2_2cx7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-24.637, 97.9156)
+rotation = -1.5661
+shape = SubResource("CapsuleShape2D_54n7m")
+
+[node name="e" type="Sprite2D" parent="."]
+position = Vector2(156, 176)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("3_w1m6g")
+
+[node name="tiles" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="f3" type="Area2D" parent="tiles"]
+
+[node name="f3" type="CollisionShape2D" parent="tiles/f3"]
+position = Vector2(52, 68)
+shape = SubResource("RectangleShape2D_55ftd")
+
+[node name="g3" type="Area2D" parent="tiles"]
+
+[node name="g3" type="CollisionShape2D" parent="tiles/g3"]
+position = Vector2(100, 68)
+shape = SubResource("RectangleShape2D_s3ety")
+
+[node name="a4" type="Area2D" parent="tiles"]
+
+[node name="a4" type="CollisionShape2D" parent="tiles/a4"]
+position = Vector2(148, 68)
+shape = SubResource("RectangleShape2D_1r3st")
+
+[node name="b4" type="Area2D" parent="tiles"]
+
+[node name="b4" type="CollisionShape2D" parent="tiles/b4"]
+position = Vector2(180, 68)
+shape = SubResource("RectangleShape2D_uj5o8")
+
+[node name="c4" type="Area2D" parent="tiles"]
+
+[node name="c4" type="CollisionShape2D" parent="tiles/c4"]
+position = Vector2(228, 68)
+shape = SubResource("RectangleShape2D_r76e0")
+
+[node name="d4" type="Area2D" parent="tiles"]
+
+[node name="d4" type="CollisionShape2D" parent="tiles/d4"]
+position = Vector2(276, 68)
+shape = SubResource("RectangleShape2D_0c1x3")
+
+[node name="e4" type="Area2D" parent="tiles"]
+
+[node name="e4" type="CollisionShape2D" parent="tiles/e4"]
+position = Vector2(308, 68)
+shape = SubResource("RectangleShape2D_un1yt")
+
+[node name="f4" type="Area2D" parent="tiles"]
+
+[node name="f4" type="CollisionShape2D" parent="tiles/f4"]
+position = Vector2(340, 68)
+shape = SubResource("RectangleShape2D_v4yil")
+
+[node name="g4" type="Area2D" parent="tiles"]
+
+[node name="g4" type="CollisionShape2D" parent="tiles/g4"]
+position = Vector2(388, 68)
+shape = SubResource("RectangleShape2D_v4m4r")
+
+[node name="a5" type="Area2D" parent="tiles"]
+
+[node name="a5" type="CollisionShape2D" parent="tiles/a5"]
+position = Vector2(420, 68)
+shape = SubResource("RectangleShape2D_iaji3")
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="f3" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("4_hkuqe")
+
+[node name="g3" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("5_s2t54")
+
+[node name="a4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("6_26wle")
+
+[node name="b4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("7_nppup")
+
+[node name="c4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("8_0klue")
+
+[node name="d4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("9_ixy0r")
+
+[node name="e4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("10_3ofwb")
+
+[node name="f4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("11_ung6o")
+
+[node name="g4" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("12_odcai")
+
+[node name="a5" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("13_6ewgj")
+
+[node name="tile_animations" type="Node2D" parent="."]
+
+[node name="f3" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(52, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="g3" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(100, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="a4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(148, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="b4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(180, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="c4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(228, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="d4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(276, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="e4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(308, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="f4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(340, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="g4" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(388, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="a5" type="AnimatedSprite2D" parent="tile_animations"]
+position = Vector2(420, 92)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_n2e8i")
+
+[node name="light_up" type="Node2D" parent="."]
+position = Vector2(164, 204)
+scale = Vector2(0.0405895, 0.0408514)
+
+[node name="f3" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(-2759.34, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="g3" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(-1576.76, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="a4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(-394.191, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="b4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(394.191, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="c4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(1576.76, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="d4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(2759.34, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="e4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(3547.72, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="f4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(4336.1, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="g4" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(5518.67, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="a5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(6307.05, -3329.14)
+scale = Vector2(18.4777, 55.0777)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="f5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(52, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="g5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(100, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="a6" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(148, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="b5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(4336.1, 293.747)
+scale = Vector2(-0.0234375, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="c5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(228, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="d5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(276, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="e5" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(308, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="f6" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(340, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="g6" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(388, 68)
+scale = Vector2(0.75, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[node name="a7" type="AnimatedSprite2D" parent="light_up"]
+position = Vector2(420, 68)
+scale = Vector2(0.749999, 2.25)
+sprite_frames = SubResource("SpriteFrames_guc4w")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhlaxd5mw4lkx"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/player_battle.gd" id="1_wj4pn"]
+[ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="2_bwxk1"]
+[ext_resource type="Texture2D" uid="uid://bt20v461dbbw6" path="res://Assets/Sprites/Battle/under.png" id="3_ui54x"]
+[ext_resource type="Texture2D" uid="uid://dnykljxe3ujns" path="res://Assets/Sprites/Battle/fill.png" id="4_aga0u"]
+[ext_resource type="Texture2D" uid="uid://cqsymry6behbj" path="res://Assets/Sprites/xpfill.png" id="5_bhysh"]
+[ext_resource type="Texture2D" uid="uid://bwspi5hv5wgg7" path="res://Assets/Sprites/Battle/player_ui.png" id="5_ii4yf"]
+[ext_resource type="Texture2D" uid="uid://kk2pnevuj3wl" path="res://Assets/Sprites/npcs/pikachu.png" id="6_35bu6"]
+[ext_resource type="Texture2D" uid="uid://tdx260pmspfn" path="res://Assets/Sprites/Battle/player.png" id="7_5xs4q"]
+
+[sub_resource type="Animation" id="Animation_vymgv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Poke1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 176)]
+}
+
+[sub_resource type="Animation" id="Animation_217jp"]
+resource_name = "tackle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Poke1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(104, 176), Vector2(136, 176), Vector2(104, 176)]
+}
+
+[sub_resource type="Animation" id="Animation_gi7ho"]
+resource_name = "thunder"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Poke1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(104, 176), Vector2(136, 176), Vector2(104, 176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hbro"]
+_data = {
+"RESET": SubResource("Animation_vymgv"),
+"tackle": SubResource("Animation_217jp"),
+"thunder": SubResource("Animation_gi7ho")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_shr27"]
+base_font = ExtResource("2_bwxk1")
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_maqdu"]
+base_font = ExtResource("2_bwxk1")
+spacing_glyph = -2
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_wj4pn")
+
+[node name="PlayerUI" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(360, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ii4yf")
+
+[node name="Poke1" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(104, 176)
+scale = Vector2(2.03972, 2.03744)
+texture = ExtResource("6_35bu6")
+
+[node name="Poke" type="Sprite2D" parent="."]
+position = Vector2(336, -76)
+scale = Vector2(8, 8)
+texture = ExtResource("7_5xs4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0hbro")
+}
+
+[node name="PlayerXPBar" type="TextureProgressBar" parent="."]
+offset_left = 321.0
+offset_top = 213.0
+offset_right = 449.0
+offset_bottom = 221.0
+value = 100.0
+texture_progress = ExtResource("5_bhysh")
+
+[node name="PlayerLv" type="Label" parent="."]
+texture_filter = 1
+offset_left = 437.0
+offset_top = 152.0
+offset_right = 497.0
+offset_bottom = 174.0
+scale = Vector2(0.5, 1)
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_shr27")
+theme_override_font_sizes/font_size = 19
+
+[node name="PlayerName" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = 290.0
+offset_top = 154.0
+offset_right = 406.0
+offset_bottom = 178.0
+scale = Vector2(0.7, 1)
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
+theme_override_colors/font_outline_color = Color(0.815686, 0.815686, 0.784314, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_maqdu")
+theme_override_font_sizes/font_size = 18
+text = "🎶🎶🎶🎶🎶"
+
+[node name="PlayerHPBar" type="TextureProgressBar" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = 349.0
+offset_top = 176.0
+offset_right = 401.0
+offset_bottom = 183.0
+scale = Vector2(2, 2)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("3_ui54x")
+texture_progress = ExtResource("4_aga0u")
+texture_progress_offset = Vector2(2, 2)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

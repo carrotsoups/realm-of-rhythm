@@ -1,0 +1,281 @@
+[gd_scene load_steps=15 format=3 uid="uid://2gqeiitc0yfy"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/drum/uptomstrain.gd" id="1_3xbtw"]
+[ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="2_4pvcx"]
+[ext_resource type="AudioStream" uid="uid://2nr3sa4765vs" path="res://Assets/Music/drumset/medtom.mp3" id="3_pvaqi"]
+[ext_resource type="Texture2D" uid="uid://clubuhnf4hswr" path="res://Assets/Sprites/drumworld/drumnotes.png" id="4_gx5ya"]
+[ext_resource type="AudioStream" uid="uid://cmgsdtvr5sodh" path="res://Assets/Music/drumset/hightom.mp3" id="4_v2efv"]
+[ext_resource type="Script" path="res://Scenes/Levels/drum/path_2d.gd" id="5_q476s"]
+[ext_resource type="Texture2D" uid="uid://1atn8di0d2dn" path="res://Assets/Sprites/drumworld/bar.png" id="6_k5j2t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2fv1"]
+load_path = "res://.godot/imported/drumnotes.png-a2fd817e46c115973aa92aa6ed7870ff.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjyor"]
+texture = SubResource("CompressedTexture2D_k2fv1")
+texture_region_size = Vector2i(7, 17)
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hdc46"]
+sources/0 = SubResource("TileSetAtlasSource_mjyor")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46ybm"]
+texture = ExtResource("4_gx5ya")
+texture_region_size = Vector2i(7, 17)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.82843, -8, 3.25, -9.125, 3.5, 8, -3.5, 8)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.25, -18, 3.5, -17.25, 3.375, 3.875, -3.625, 4.125)
+
+[sub_resource type="TileSet" id="TileSet_4gksr"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_46ybm")
+
+[sub_resource type="Curve2D" id="Curve2D_8xlba"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 0)
+}
+point_count = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8c8d"]
+size = Vector2(16.473, 99.8633)
+
+[node name="Uptomstrain" type="Node2D"]
+script = ExtResource("1_3xbtw")
+
+[node name="staff" type="Node2D" parent="."]
+position = Vector2(-84, -64)
+scale = Vector2(2.0106, 2.03397)
+
+[node name="staff" type="Sprite2D" parent="staff"]
+texture = ExtResource("2_4pvcx")
+
+[node name="staff2" type="Sprite2D" parent="staff"]
+position = Vector2(120, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff3" type="Sprite2D" parent="staff"]
+position = Vector2(240, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff4" type="Sprite2D" parent="staff"]
+position = Vector2(360, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff5" type="Sprite2D" parent="staff"]
+position = Vector2(480, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff6" type="Sprite2D" parent="staff"]
+position = Vector2(600, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff7" type="Sprite2D" parent="staff"]
+position = Vector2(720, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff8" type="Sprite2D" parent="staff"]
+position = Vector2(840, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff9" type="Sprite2D" parent="staff"]
+position = Vector2(960, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff10" type="Sprite2D" parent="staff"]
+position = Vector2(1080, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff11" type="Sprite2D" parent="staff"]
+position = Vector2(1200, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff2" type="Node2D" parent="."]
+position = Vector2(-84, 28)
+scale = Vector2(2.0106, 2.03397)
+
+[node name="staff" type="Sprite2D" parent="staff2"]
+texture = ExtResource("2_4pvcx")
+
+[node name="staff2" type="Sprite2D" parent="staff2"]
+position = Vector2(120, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff3" type="Sprite2D" parent="staff2"]
+position = Vector2(240, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff4" type="Sprite2D" parent="staff2"]
+position = Vector2(360, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff5" type="Sprite2D" parent="staff2"]
+position = Vector2(480, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff6" type="Sprite2D" parent="staff2"]
+position = Vector2(600, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff7" type="Sprite2D" parent="staff2"]
+position = Vector2(720, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff8" type="Sprite2D" parent="staff2"]
+position = Vector2(840, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff9" type="Sprite2D" parent="staff2"]
+position = Vector2(960, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff10" type="Sprite2D" parent="staff2"]
+position = Vector2(1080, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="staff11" type="Sprite2D" parent="staff2"]
+position = Vector2(1200, 0)
+rotation = -3.14159
+texture = ExtResource("2_4pvcx")
+
+[node name="medtom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pvaqi")
+
+[node name="hightom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v2efv")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="staff" type="TileMapLayer" parent="TileMap"]
+position = Vector2(8, 4)
+scale = Vector2(2.01377, 2.01377)
+tile_set = SubResource("TileSet_hdc46")
+
+[node name="notes" type="TileMapLayer" parent="TileMap"]
+position = Vector2(9, 20)
+scale = Vector2(2.01377, 2.01377)
+tile_set = SubResource("TileSet_4gksr")
+
+[node name="mednotes" type="Node2D" parent="."]
+
+[node name="highnotes" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-84, -64)
+scale = Vector2(2.0106, 2.03397)
+curve = SubResource("Curve2D_8xlba")
+script = ExtResource("5_q476s")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-50, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+position = Vector2(55.7049, 45.2318)
+rotation = -0.0796891
+scale = Vector2(0.497328, 0.491687)
+skew = -0.00185537
+
+[node name="hightom" type="Node2D" parent="Path2D/PathFollow2D/Camera2D"]
+
+[node name="highrigid" type="RigidBody2D" parent="Path2D/PathFollow2D/Camera2D/hightom"]
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D/hightom/highrigid"]
+position = Vector2(39.8323, -89.0819)
+rotation = 0.066958
+scale = Vector2(3, 3)
+texture = ExtResource("6_k5j2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Camera2D/hightom/highrigid"]
+position = Vector2(0.511284, -102.222)
+rotation = 0.0730051
+shape = SubResource("RectangleShape2D_l8c8d")
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/hightom"]
+offset_left = -127.516
+offset_top = 45.0992
+offset_right = -87.5154
+offset_bottom = 85.0992
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/hightom"]
+offset_left = -127.516
+offset_top = 45.0992
+offset_right = -87.5154
+offset_bottom = 85.0992
+color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="medtom" type="Node2D" parent="Path2D/PathFollow2D/Camera2D"]
+position = Vector2(74.5487, -22.0688)
+rotation = 0.0806114
+scale = Vector2(0.999998, 0.999999)
+
+[node name="medrigid" type="RigidBody2D" parent="Path2D/PathFollow2D/Camera2D/medtom"]
+position = Vector2(0, 16)
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D/medtom/medrigid"]
+position = Vector2(-40, 16)
+rotation = 0.010544
+scale = Vector2(3, 3)
+texture = ExtResource("6_k5j2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Camera2D/medtom/medrigid"]
+position = Vector2(-80.217, 1.96393)
+rotation = 0.012975
+shape = SubResource("RectangleShape2D_l8c8d")
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/medtom"]
+offset_left = -124.0
+offset_top = 84.0
+offset_right = -83.9997
+offset_bottom = 124.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/medtom"]
+offset_left = -124.0
+offset_top = 84.0
+offset_right = -83.9997
+offset_bottom = 124.0
+color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/hightom/highrigid" to="." method="_on_highrigid_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/Camera2D/hightom/highrigid" to="." method="_on_highrigid_body_exited"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/medtom/medrigid" to="." method="_on_rigid_body_2d_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/Camera2D/medtom/medrigid" to="." method="_on_rigid_body_2d_body_exited"]

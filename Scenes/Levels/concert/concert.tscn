@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://oef6i4xhidlu"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/concert/concert.gd" id="1_h3j6g"]
+[ext_resource type="PackedScene" uid="uid://bnyjx4jfwpyc0" path="res://Scenes/Player/player.tscn" id="1_s0xok"]
+[ext_resource type="PackedScene" uid="uid://b4ftvj7oyjwqp" path="res://Scenes/Levels/drum/drumunlocked.tscn" id="2_8rwhb"]
+[ext_resource type="PackedScene" uid="uid://dxmikh3ovqoxi" path="res://Scenes/Levels/piano/pianoplayable.tscn" id="2_41nsd"]
+[ext_resource type="PackedScene" uid="uid://brd4h8n1xk453" path="res://Scenes/Levels/concert/menu.tscn" id="5_xakyf"]
+[ext_resource type="PackedScene" uid="uid://c2fkt0wr8b88k" path="res://Scenes/Levels/piano/recordbutton.tscn" id="6_gcuxe"]
+[ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="6_ilexu"]
+[ext_resource type="PackedScene" uid="uid://bep3rcuo6frij" path="res://Scenes/Levels/concert/button.tscn" id="9_etmf2"]
+
+[node name="Concert" type="Node2D"]
+script = ExtResource("1_h3j6g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -276.0
+offset_top = -248.0
+offset_right = 530.0
+offset_bottom = 284.0
+scale = Vector2(3.20213, 0.803914)
+color = Color(0.57, 0.871, 1, 1)
+
+[node name="staffdrum" type="Node2D" parent="."]
+position = Vector2(-108, -124)
+scale = Vector2(1.90011, -1.36307)
+
+[node name="staff" type="Sprite2D" parent="staffdrum"]
+texture = ExtResource("6_ilexu")
+
+[node name="staff2" type="Sprite2D" parent="staffdrum"]
+position = Vector2(120, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff3" type="Sprite2D" parent="staffdrum"]
+position = Vector2(240, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff4" type="Sprite2D" parent="staffdrum"]
+position = Vector2(360, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff5" type="Sprite2D" parent="staffdrum"]
+position = Vector2(480, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff6" type="Sprite2D" parent="staffdrum"]
+position = Vector2(600, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff7" type="Sprite2D" parent="staffdrum"]
+position = Vector2(720, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff8" type="Sprite2D" parent="staffdrum"]
+position = Vector2(840, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff9" type="Sprite2D" parent="staffdrum"]
+position = Vector2(960, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff10" type="Sprite2D" parent="staffdrum"]
+position = Vector2(1080, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff11" type="Sprite2D" parent="staffdrum"]
+position = Vector2(1200, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staffpiano" type="Node2D" parent="."]
+position = Vector2(-108, -76)
+scale = Vector2(1.90011, -1.36307)
+
+[node name="staff" type="Sprite2D" parent="staffpiano"]
+texture = ExtResource("6_ilexu")
+
+[node name="staff2" type="Sprite2D" parent="staffpiano"]
+position = Vector2(120, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff3" type="Sprite2D" parent="staffpiano"]
+position = Vector2(240, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff4" type="Sprite2D" parent="staffpiano"]
+position = Vector2(360, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff5" type="Sprite2D" parent="staffpiano"]
+position = Vector2(480, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff6" type="Sprite2D" parent="staffpiano"]
+position = Vector2(600, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff7" type="Sprite2D" parent="staffpiano"]
+position = Vector2(720, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff8" type="Sprite2D" parent="staffpiano"]
+position = Vector2(840, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff9" type="Sprite2D" parent="staffpiano"]
+position = Vector2(960, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff10" type="Sprite2D" parent="staffpiano"]
+position = Vector2(1080, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="staff11" type="Sprite2D" parent="staffpiano"]
+position = Vector2(1200, 0)
+rotation = -3.14159
+texture = ExtResource("6_ilexu")
+
+[node name="notesplayed" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="recordbutton" parent="Camera2D" instance=ExtResource("6_gcuxe")]
+position = Vector2(-224, -184)
+
+[node name="Button" parent="Camera2D" instance=ExtResource("9_etmf2")]
+position = Vector2(200, 12)
+scale = Vector2(0.516863, 0.518004)
+
+[node name="Drumunlocked" parent="Camera2D" instance=ExtResource("2_8rwhb")]
+position = Vector2(-172, 88)
+scale = Vector2(0.381202, 0.381202)
+
+[node name="Pianoplayable" parent="Camera2D" instance=ExtResource("2_41nsd")]
+position = Vector2(-104, 60)
+scale = Vector2(0.707161, 0.707161)
+
+[node name="MenuV" parent="Camera2D" instance=ExtResource("5_xakyf")]
+offset_left = -192.0
+offset_top = -52.0
+offset_right = -192.0
+offset_bottom = -52.0
+
+[node name="Player" parent="Camera2D" instance=ExtResource("1_s0xok")]
+position = Vector2(-80, 68)

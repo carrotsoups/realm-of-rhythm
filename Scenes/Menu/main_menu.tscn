@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj7e0c5p3x7he"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/main_menu.gd" id="1_nkly5"]
+[ext_resource type="Texture2D" uid="uid://b7qwp161xcc6q" path="res://Assets/Sprites/Battle/player.png" id="2_1eyiw"]
+[ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="3_bg4px"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="4_ugt7v"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkly5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 512.0
+offset_bottom = 328.0
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(856, 352)
+scale = Vector2(10.4762, 10.4762)
+texture = ExtResource("2_1eyiw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 633.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("3_bg4px")
+theme_override_font_sizes/font_size = 39
+text = "Realm of Rhythm"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(312, 176)
+rotation = 5.78118
+scale = Vector2(4.01258, 4.01258)
+texture = ExtResource("4_ugt7v")
+flip_v = true

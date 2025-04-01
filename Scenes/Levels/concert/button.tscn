@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bep3rcuo6frij"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/concert/button.gd" id="1_hr7sb"]
+[ext_resource type="Texture2D" uid="uid://drsexon5rjwsj" path="res://Assets/Sprites/concert/resetbutt.png" id="2_qpx55"]
+[ext_resource type="Texture2D" uid="uid://bcw1vbdtrjr86" path="res://Assets/Sprites/concert/savebutt.png" id="3_gtbnt"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="4_1nwim"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l2gct"]
+radius = 59.9998
+height = 151.999
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw112"]
+radius = 31.9997
+height = 95.9992
+
+[node name="Button" type="Node2D"]
+script = ExtResource("1_hr7sb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.72529e-09, 16)
+rotation = -1.57339
+shape = SubResource("CapsuleShape2D_l2gct")
+
+[node name="button" type="StaticBody2D" parent="."]
+
+[node name="recording" type="Sprite2D" parent="button"]
+texture = ExtResource("2_qpx55")
+
+[node name="notrecording" type="Sprite2D" parent="button"]
+texture = ExtResource("3_gtbnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button"]
+position = Vector2(0, 12)
+rotation = -1.57497
+shape = SubResource("CapsuleShape2D_qw112")
+
+[node name="e" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, -44)
+texture = ExtResource("4_1nwim")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
