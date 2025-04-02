@@ -10,6 +10,8 @@ var pathplay = "root/Scenes/Pianoworld/Notes/"
 var notes = {}
 var songLength = 0
 var playerpos = Vector2(138,54)
+var zoomedIn = false
+var menuReqs = null
 var instrumentLevels = {
 		"cymbal":1,
 		"hihat":1,
@@ -44,7 +46,7 @@ var playerInfo = {
 @onready var played = {"piano":[],"drum":[]}
 
 func change_scene(scene):
-	get_tree().change_scene_to_file("res://scenes/"+scene)
+	get_tree().change_scene_to_file("res://Scenes/"+scene)
 func loadplayer():
 	var playerinst = load("res://Scenes/Player/player.tscn").instantiate()
 	playerinst.set_script(load("res://Player/Player.gd"))

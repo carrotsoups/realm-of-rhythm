@@ -7,7 +7,7 @@ func _ready():
 	setup_text()
 	
 	# this function is needed to grab the focus from the keyboard
-	set_focus_mode(2) 
+	set_focus_mode(1) 
 
 func _process(delta):
 	if has_focus():

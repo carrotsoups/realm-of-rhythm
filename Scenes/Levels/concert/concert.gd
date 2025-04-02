@@ -32,10 +32,46 @@ func next_action():
 	else:
 		submittedSong = GameManager.played
 		GameManager.played = {"piano":[],"drum":[]}
+		var scores = calculate_score(submittedSong)
+		GameManager.menuReqs = null
+		SignalManager.emit_signal("concertscore",scores)
+		print(scores)
 		print(submittedSong)
+		get_node("./Camera2D/endscorecard").show()
+		await get_tree().create_timer(5.0).timeout 
+		get_node("./Camera2D/endscorecard").hide()
+		GameManager.world = "Levels/world.tscn"
+		GameManager.change_scene(GameManager.world)
+
+func calculate_score(submittedSong:Dictionary,reqs:Dictionary=GameManager.menuReqs):
+	if reqs == null or submittedSong == null: return
+	var totalscore = 1000
+	var pianoscore = 500
+	var drumscore = 500
+	var scores = {
+		"piano":[pianoscore,500],
+		"drums":[drumscore,500]
+	}
+
+	for x in ["f3","g3","a4","b4","c4","d4","e4","f4","g4","a5"]:
+		if reqs["pianoReqs"][x] == -1:
+			pianoscore -= (submittedSong["piano"].count(x)*10)
+		elif reqs["pianoReqs"][x] == 1:
+			pianoscore += (submittedSong["piano"].count(x)*5)
+	
+	if not reqs["drumallowed"]:
+		drumscore = 0
+		scores["drums"][1] = 0
+	else:
+		pass
 		
 	
-	
+		
+	scores = {
+		"piano":[pianoscore,500],
+		"drums":[drumscore,scores["drums"][1]]
+	}
+	return scores
 func add_to_played(instrument:String, note:String):
 	print(instrument,note)
 	if recordbutt.name != "recording":

@@ -1,12 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://brd4h8n1xk453"]
+[gd_scene load_steps=18 format=3 uid="uid://brd4h8n1xk453"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/concert/menu.gd" id="1_jyx11"]
 [ext_resource type="Texture2D" uid="uid://dlya668e5h0uq" path="res://Assets/Sprites/drumworld/drumcymbal.png" id="2_7cgbv"]
 [ext_resource type="Texture2D" uid="uid://ovtxllwrfno5" path="res://Assets/Sprites/drumworld/drumsuptoms.png" id="2_s36ly"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="2_umvnd"]
 [ext_resource type="Texture2D" uid="uid://cp6edbxygmwbo" path="res://Assets/Sprites/drumworld/drumbass.png" id="3_drqux"]
 [ext_resource type="Texture2D" uid="uid://fri8t7wdq1sw" path="res://Assets/Sprites/drumworld/drumsnare.png" id="4_1nhat"]
+[ext_resource type="Texture2D" uid="uid://hy7hr507cnnn" path="res://Assets/Sprites/drumworld/cymbal.png" id="4_sgs0q"]
 [ext_resource type="Texture2D" uid="uid://cf6daq577po4s" path="res://Assets/Sprites/drumworld/drumfloortom.png" id="5_ku24y"]
+[ext_resource type="Texture2D" uid="uid://dr4aq24sjwsmi" path="res://Assets/Sprites/drumworld/uptoms.png" id="6_aylre"]
 [ext_resource type="Texture2D" uid="uid://cffd8hs31q4fh" path="res://Assets/Sprites/drumworld/drumhihat.png" id="6_ykdgs"]
+[ext_resource type="Texture2D" uid="uid://djprryimrs1b5" path="res://Assets/Sprites/drumworld/hiddenbassdrum.png" id="8_8h11i"]
+[ext_resource type="Texture2D" uid="uid://b2h854xvgkyx0" path="res://Assets/Sprites/pianoworld/pienio.png" id="9_e770y"]
+[ext_resource type="Texture2D" uid="uid://cknuw1k7nk8v5" path="res://Assets/Sprites/drumworld/snare.png" id="10_65ool"]
+[ext_resource type="Texture2D" uid="uid://c8ms5aelt8kl2" path="res://Assets/Sprites/drumworld/hiddenfloortom.png" id="12_ocvj8"]
+[ext_resource type="Texture2D" uid="uid://5fy5e3snwitp" path="res://Assets/Sprites/drumworld/hihat.png" id="14_7lrm8"]
+[ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="16_0el6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmpp1"]
+size = Vector2(909.696, 1185.16)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -14,106 +26,184 @@ anchors_preset = 0
 scale = Vector2(0.318788, 0.308819)
 script = ExtResource("1_jyx11")
 
+[node name="boundry" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundry"]
+position = Vector2(385.836, 521.341)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qmpp1")
+
+[node name="e" type="Sprite2D" parent="boundry"]
+position = Vector2(-150.57, 297.909)
+rotation = -0.341064
+scale = Vector2(6.05914, 6.05914)
+texture = ExtResource("2_umvnd")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 284.0
 offset_bottom = 424.0
-scale = Vector2(0.735009, 0.735009)
+scale = Vector2(2.69089, 2.43104)
 color = Color(0.88, 0.8316, 0.616, 1)
-
-[node name="selected" type="Label" parent="."]
-layout_mode = 0
-offset_left = 87.8327
-offset_top = 12.9526
-offset_right = 335.833
-offset_bottom = 80.9526
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 37
-text = "[Selection]"
 
 [node name="min level" type="Label" parent="."]
 layout_mode = 0
-offset_left = 12.5475
-offset_top = 64.7629
-offset_right = 68.5475
-offset_bottom = 96.7629
+offset_left = 75.2851
+offset_top = 12.9526
+offset_right = 320.285
+offset_bottom = 149.953
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 23
-text = "Lvl > "
+theme_override_font_sizes/font_size = 100
+text = "Lvl. > "
+
+[node name="level" type="Label" parent="min level"]
+layout_mode = 0
+offset_left = 276.046
+offset_right = 527.046
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Level"
 
 [node name="cymbal" type="Label" parent="."]
-layout_mode = 0
-offset_left = 25.095
-offset_top = 116.573
-offset_right = 72.095
-offset_bottom = 139.573
+offset_left = 112.928
+offset_top = 246.099
+offset_right = 228.928
+offset_bottom = 301.099
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="cymbal" type="Sprite2D" parent="cymbal"]
-position = Vector2(27.1807, 13.5904)
-scale = Vector2(0.241581, 0.241581)
+position = Vector2(50.1901, 12.9526)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_7cgbv")
 
+[node name="Sprite2D" type="Sprite2D" parent="cymbal"]
+position = Vector2(87.8327, 51.8103)
+texture = ExtResource("4_sgs0q")
+
 [node name="uptoms" type="Label" parent="."]
-layout_mode = 0
-offset_left = 87.8327
-offset_top = 129.526
-offset_right = 134.833
-offset_bottom = 152.526
+offset_left = 338.783
+offset_top = 259.051
+offset_right = 454.783
+offset_bottom = 314.051
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="uptoms" type="Sprite2D" parent="uptoms"]
-position = Vector2(27.1807, 6.79517)
-scale = Vector2(0.352921, 0.362059)
+position = Vector2(50.1901, 12.9525)
 texture = ExtResource("2_s36ly")
 
+[node name="Sprite2D" type="Sprite2D" parent="uptoms"]
+position = Vector2(50.1901, 12.9526)
+texture = ExtResource("6_aylre")
+
 [node name="bass" type="Label" parent="."]
-layout_mode = 0
-offset_left = 213.308
-offset_top = 103.621
-offset_right = 260.308
-offset_bottom = 126.621
+offset_left = 602.281
+offset_top = 207.241
+offset_right = 718.281
+offset_bottom = 262.241
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="bass" type="Sprite2D" parent="bass"]
-position = Vector2(-27.1807, -13.5903)
-scale = Vector2(0.398626, 0.398626)
+position = Vector2(62.7376, -142.478)
 texture = ExtResource("3_drqux")
 
+[node name="Sprite2D" type="Sprite2D" parent="bass"]
+position = Vector2(62.7376, -142.478)
+texture = ExtResource("8_8h11i")
+
 [node name="snare" type="Label" parent="."]
-layout_mode = 0
-offset_top = 194.289
-offset_right = 47.0
-offset_bottom = 217.289
+offset_left = 125.475
+offset_top = 440.387
+offset_right = 241.475
+offset_bottom = 495.387
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="snare" type="Sprite2D" parent="snare"]
-position = Vector2(-6.79517, -20.3855)
-scale = Vector2(0.327231, 0.327231)
+position = Vector2(-37.6426, -64.7628)
 texture = ExtResource("4_1nhat")
 
+[node name="Sprite2D" type="Sprite2D" parent="snare"]
+position = Vector2(-87.8327, -64.7629)
+scale = Vector2(1.36836, 1.14713)
+texture = ExtResource("10_65ool")
+
 [node name="floortom" type="Label" parent="."]
-layout_mode = 0
-offset_left = 75.2851
-offset_top = 207.241
-offset_right = 122.285
-offset_bottom = 230.241
+offset_left = 338.783
+offset_top = 440.387
+offset_right = 454.783
+offset_bottom = 495.387
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="floortom" type="Sprite2D" parent="floortom"]
-position = Vector2(61.1566, -33.9759)
-scale = Vector2(0.463135, 0.463135)
+position = Vector2(138.023, -77.7154)
 texture = ExtResource("5_ku24y")
 
+[node name="Sprite2D" type="Sprite2D" parent="floortom"]
+position = Vector2(188.213, -77.7154)
+scale = Vector2(1.36015, 1)
+texture = ExtResource("12_ocvj8")
+
 [node name="hihat" type="Label" parent="."]
-layout_mode = 0
-offset_left = 175.665
-offset_top = 181.336
-offset_right = 222.665
-offset_bottom = 204.336
+offset_left = 614.829
+offset_top = 375.625
+offset_right = 730.829
+offset_bottom = 430.625
+theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
 [node name="hihat" type="Sprite2D" parent="hihat"]
-position = Vector2(-54.3614, 6.79517)
-scale = Vector2(0.327231, 0.327231)
+position = Vector2(-163.118, 12.9526)
 texture = ExtResource("6_ykdgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="hihat"]
+position = Vector2(-163.118, 12.9526)
+texture = ExtResource("14_7lrm8")
+
+[node name="piano" type="Label" parent="."]
+offset_left = 125.475
+offset_top = 932.585
+offset_right = 233.475
+offset_bottom = 987.585
+theme_override_font_sizes/font_size = 40
+text = "vbfdg"
+
+[node name="piano" type="Sprite2D" parent="piano"]
+position = Vector2(62.7376, -90.6681)
+texture = ExtResource("9_e770y")
+
+[node name="Sprite2D" type="Sprite2D" parent="piano"]
+position = Vector2(439.163, -168.383)
+scale = Vector2(3.0406, 3.01268)
+texture = ExtResource("16_0el6k")
+
+[node name="Label" type="Label" parent="piano/Sprite2D"]
+offset_left = -8.25331
+offset_top = -34.3949
+offset_right = 31.7467
+offset_bottom = -11.3949
+text = "✅"
+
+[node name="Sprite2D2" type="Sprite2D" parent="piano"]
+position = Vector2(439.163, -1.52588e-05)
+scale = Vector2(3.0406, 3.01268)
+texture = ExtResource("16_0el6k")
+
+[node name="Label" type="Label" parent="piano/Sprite2D2"]
+offset_left = -8.25331
+offset_top = -34.3949
+offset_right = 31.7467
+offset_bottom = -11.3949
+text = "❌"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288.593, 518.103)
+scale = Vector2(-487.522, 0.731955)
+
+[connection signal="body_shape_entered" from="boundry" to="." method="_on_boundry_body_shape_entered"]
+[connection signal="body_shape_exited" from="boundry" to="." method="_on_boundry_body_shape_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://oef6i4xhidlu"]
+[gd_scene load_steps=10 format=3 uid="uid://oef6i4xhidlu"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/concert/concert.gd" id="1_h3j6g"]
 [ext_resource type="PackedScene" uid="uid://bnyjx4jfwpyc0" path="res://Scenes/Player/player.tscn" id="1_s0xok"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brd4h8n1xk453" path="res://Scenes/Levels/concert/menu.tscn" id="5_xakyf"]
 [ext_resource type="PackedScene" uid="uid://c2fkt0wr8b88k" path="res://Scenes/Levels/piano/recordbutton.tscn" id="6_gcuxe"]
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="6_ilexu"]
+[ext_resource type="PackedScene" uid="uid://b35gmv1m8bj0q" path="res://Scenes/Levels/concert/endscorecard.tscn" id="9_0tx3k"]
 [ext_resource type="PackedScene" uid="uid://bep3rcuo6frij" path="res://Scenes/Levels/concert/button.tscn" id="9_etmf2"]
 
 [node name="Concert" type="Node2D"]
@@ -137,7 +138,6 @@ texture = ExtResource("6_ilexu")
 [node name="notesplayed" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="recordbutton" parent="Camera2D" instance=ExtResource("6_gcuxe")]
 position = Vector2(-224, -184)
@@ -154,11 +154,17 @@ scale = Vector2(0.381202, 0.381202)
 position = Vector2(-104, 60)
 scale = Vector2(0.707161, 0.707161)
 
-[node name="MenuV" parent="Camera2D" instance=ExtResource("5_xakyf")]
+[node name="Menu" parent="Camera2D" instance=ExtResource("5_xakyf")]
 offset_left = -192.0
 offset_top = -52.0
 offset_right = -192.0
 offset_bottom = -52.0
+scale = Vector2(0.0921249, 0.089244)
 
 [node name="Player" parent="Camera2D" instance=ExtResource("1_s0xok")]
 position = Vector2(-80, 68)
+
+[node name="endscorecard" parent="Camera2D" instance=ExtResource("9_0tx3k")]
+visible = false
+
+[connection signal="mouse_entered" from="Camera2D/Menu" to="." method="_on_menu_mouse_entered"]
