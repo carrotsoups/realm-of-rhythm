@@ -27,11 +27,9 @@ scale = Vector2(0.318788, 0.308819)
 script = ExtResource("1_jyx11")
 
 [node name="boundry" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundry"]
 position = Vector2(385.836, 521.341)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qmpp1")
 
 [node name="e" type="Sprite2D" parent="boundry"]
@@ -67,6 +65,7 @@ theme_override_font_sizes/font_size = 100
 text = "Level"
 
 [node name="cymbal" type="Label" parent="."]
+layout_mode = 0
 offset_left = 112.928
 offset_top = 246.099
 offset_right = 228.928
@@ -84,6 +83,7 @@ position = Vector2(87.8327, 51.8103)
 texture = ExtResource("4_sgs0q")
 
 [node name="uptoms" type="Label" parent="."]
+layout_mode = 0
 offset_left = 338.783
 offset_top = 259.051
 offset_right = 454.783
@@ -100,6 +100,7 @@ position = Vector2(50.1901, 12.9526)
 texture = ExtResource("6_aylre")
 
 [node name="bass" type="Label" parent="."]
+layout_mode = 0
 offset_left = 602.281
 offset_top = 207.241
 offset_right = 718.281
@@ -116,6 +117,7 @@ position = Vector2(62.7376, -142.478)
 texture = ExtResource("8_8h11i")
 
 [node name="snare" type="Label" parent="."]
+layout_mode = 0
 offset_left = 125.475
 offset_top = 440.387
 offset_right = 241.475
@@ -133,6 +135,7 @@ scale = Vector2(1.36836, 1.14713)
 texture = ExtResource("10_65ool")
 
 [node name="floortom" type="Label" parent="."]
+layout_mode = 0
 offset_left = 338.783
 offset_top = 440.387
 offset_right = 454.783
@@ -150,6 +153,7 @@ scale = Vector2(1.36015, 1)
 texture = ExtResource("12_ocvj8")
 
 [node name="hihat" type="Label" parent="."]
+layout_mode = 0
 offset_left = 614.829
 offset_top = 375.625
 offset_right = 730.829
@@ -166,6 +170,7 @@ position = Vector2(-163.118, 12.9526)
 texture = ExtResource("14_7lrm8")
 
 [node name="piano" type="Label" parent="."]
+layout_mode = 0
 offset_left = 125.475
 offset_top = 932.585
 offset_right = 233.475

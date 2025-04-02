@@ -66,6 +66,12 @@ func calculate_score(submittedSong:Dictionary,reqs:Dictionary=GameManager.menuRe
 		pass
 		
 	
+	if reqs["level"] > GameManager.playerInfo["level"]:
+		pianoscore -= 500
+		drumscore -= 500
+	elif reqs["piano"] > GameManager.instrumentLevels["piano"]:
+		pianoscore -= 500
+		
 		
 	scores = {
 		"piano":[pianoscore,500],
