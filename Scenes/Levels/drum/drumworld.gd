@@ -14,6 +14,8 @@ extends Node2D
 }
 @onready var isInfoOpen = false
 @onready var infoRect:Node2D = get_node("./Player/Info")
+@onready var noise = {}
+@onready var instruments =  ["bass","snare","hihat","cymbal","floortom","medtom","hightom"]
 
 
 func _ready():
@@ -27,6 +29,9 @@ func _ready():
 			ddrum.show()
 	infoRect.hide()
 	eButt.hide()
+	
+	for par in instruments:
+		noise[par] = get_node("./sounds/"+par)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -50,7 +55,13 @@ func _process(delta: float) -> void:
 			infoRect.show()
 		else:
 			infoRect.hide()
-		
+			
+	for part in instruments:
+		if (part == "medtom" or part == "hightom"):
+			if GameManager.playerInfo["unlocked"]["drumset"][1]["uptoms"] and Input.is_action_just_pressed(part):
+				noise[part].play()
+		elif GameManager.playerInfo["unlocked"]["drumset"][1][part] and Input.is_action_just_pressed(part):
+			noise[part].play()
 	
 		
 	

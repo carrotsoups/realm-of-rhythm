@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://oef6i4xhidlu"]
+[gd_scene load_steps=12 format=3 uid="uid://oef6i4xhidlu"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/concert/concert.gd" id="1_h3j6g"]
 [ext_resource type="PackedScene" uid="uid://bnyjx4jfwpyc0" path="res://Scenes/Player/player.tscn" id="1_s0xok"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="6_ilexu"]
 [ext_resource type="PackedScene" uid="uid://b35gmv1m8bj0q" path="res://Scenes/Levels/concert/endscorecard.tscn" id="9_0tx3k"]
 [ext_resource type="PackedScene" uid="uid://bep3rcuo6frij" path="res://Scenes/Levels/concert/button.tscn" id="9_etmf2"]
+[ext_resource type="PackedScene" uid="uid://bs5h1dtetjil6" path="res://Scenes/Levels/info.tscn" id="10_ybwuh"]
+[ext_resource type="PackedScene" uid="uid://ddokpcx0w4jmq" path="res://Scenes/zbutt.tscn" id="11_bndoh"]
 
 [node name="Concert" type="Node2D"]
 script = ExtResource("1_h3j6g")
@@ -155,9 +157,9 @@ position = Vector2(-104, 60)
 scale = Vector2(0.707161, 0.707161)
 
 [node name="Menu" parent="Camera2D" instance=ExtResource("5_xakyf")]
-offset_left = -192.0
+offset_left = -148.0
 offset_top = -52.0
-offset_right = -192.0
+offset_right = -148.0
 offset_bottom = -52.0
 scale = Vector2(0.0921249, 0.089244)
 
@@ -166,5 +168,12 @@ position = Vector2(-80, 68)
 
 [node name="endscorecard" parent="Camera2D" instance=ExtResource("9_0tx3k")]
 visible = false
+
+[node name="Info" parent="Camera2D" instance=ExtResource("10_ybwuh")]
+visible = false
+position = Vector2(-96, -148)
+
+[node name="Zbutt" parent="Camera2D" instance=ExtResource("11_bndoh")]
+position = Vector2(-120, 112)
 
 [connection signal="mouse_entered" from="Camera2D/Menu" to="." method="_on_menu_mouse_entered"]

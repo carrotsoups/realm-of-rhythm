@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://lof0lrei5ng6"]
+[gd_scene load_steps=6 format=3 uid="uid://lof0lrei5ng6"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/charge/charge.gd" id="1_3g7xy"]
 [ext_resource type="Texture2D" uid="uid://u1hr1k1oibcb" path="res://Scenes/Levels/charge/bkg.png" id="1_kvmh2"]
 [ext_resource type="PackedScene" uid="uid://u6ay28s5djf7" path="res://Scenes/Levels/charge/battery.tscn" id="2_yq488"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="4_brabl"]
+[ext_resource type="PackedScene" uid="uid://c5x42fehsobi4" path="res://Scenes/escbutt.tscn" id="5_tt8d8"]
 
 [node name="Charge" type="Node2D"]
 script = ExtResource("1_3g7xy")
@@ -16,3 +18,11 @@ texture = ExtResource("1_kvmh2")
 [node name="battery" parent="." instance=ExtResource("2_yq488")]
 position = Vector2(-100, 8)
 scale = Vector2(0.0733998, 0.0733998)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-220, 144)
+texture = ExtResource("4_brabl")
+
+[node name="Escbutt" parent="." instance=ExtResource("5_tt8d8")]
+position = Vector2(-196, 128)
+scale = Vector2(0.598245, 0.598245)

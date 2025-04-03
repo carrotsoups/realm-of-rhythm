@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="3_j5p75"]
 [ext_resource type="Texture2D" uid="uid://bt20v461dbbw6" path="res://Assets/Sprites/Battle/under.png" id="4_in2xp"]
 [ext_resource type="Texture2D" uid="uid://dnykljxe3ujns" path="res://Assets/Sprites/Battle/fill.png" id="5_70yyu"]
-[ext_resource type="Texture2D" uid="uid://b563wmhvvobny" path="res://Assets/Sprites/npcs/rattata.png" id="7_y81tw"]
+[ext_resource type="Texture2D" uid="uid://o5iaj8t8sar2" path="res://Assets/Sprites/npcs/microphone/idle.png" id="6_cjteh"]
 
 [sub_resource type="FontVariation" id="FontVariation_maqdu"]
 base_font = ExtResource("3_j5p75")
@@ -20,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/path = NodePath("EnemySprite2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemySprite:visible")
+tracks/1/path = NodePath("EnemySprite2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,7 +48,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/path = NodePath("EnemySprite2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +63,7 @@ resource_name = "hit"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/path = NodePath("EnemySprite2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,7 +75,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemySprite:visible")
+tracks/1/path = NodePath("EnemySprite2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -95,7 +95,6 @@ _data = {
 [node name="Enemy" type="Node2D"]
 position = Vector2(192, 16)
 script = ExtResource("1_ka4xh")
-metadata/_edit_lock_ = true
 
 [node name="EnemyUI" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -116,7 +115,7 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = SubResource("FontVariation_maqdu")
 theme_override_font_sizes/font_size = 18
-text = "🥁🥁🥁🥁🥁🥁🥁🥁"
+text = "🎤🎙️🎤🎙️🎤🎙️🎤🎙️"
 
 [node name="EnemyLv" type="Label" parent="."]
 texture_filter = 1
@@ -145,11 +144,11 @@ texture_under = ExtResource("4_in2xp")
 texture_progress = ExtResource("5_70yyu")
 texture_progress_offset = Vector2(2, 2)
 
-[node name="EnemySprite" type="Sprite2D" parent="."]
+[node name="EnemySprite2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(160, 72)
-scale = Vector2(3, 3)
-texture = ExtResource("7_y81tw")
+scale = Vector2(1.91055, 1.91055)
+texture = ExtResource("6_cjteh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

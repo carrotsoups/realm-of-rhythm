@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://brd4h8n1xk453"]
+[gd_scene load_steps=19 format=3 uid="uid://brd4h8n1xk453"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/concert/menu.gd" id="1_jyx11"]
 [ext_resource type="Texture2D" uid="uid://dlya668e5h0uq" path="res://Assets/Sprites/drumworld/drumcymbal.png" id="2_7cgbv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ms5aelt8kl2" path="res://Assets/Sprites/drumworld/hiddenfloortom.png" id="12_ocvj8"]
 [ext_resource type="Texture2D" uid="uid://5fy5e3snwitp" path="res://Assets/Sprites/drumworld/hihat.png" id="14_7lrm8"]
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="16_0el6k"]
+[ext_resource type="PackedScene" uid="uid://bs5h1dtetjil6" path="res://Scenes/Levels/info.tscn" id="17_0jv65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmpp1"]
 size = Vector2(909.696, 1185.16)
@@ -27,6 +28,7 @@ scale = Vector2(0.318788, 0.308819)
 script = ExtResource("1_jyx11")
 
 [node name="boundry" type="Area2D" parent="."]
+position = Vector2(-451.711, 12.9526)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundry"]
 position = Vector2(385.836, 521.341)
@@ -40,17 +42,19 @@ texture = ExtResource("2_umvnd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 284.0
-offset_bottom = 424.0
+offset_left = -451.711
+offset_top = 12.9526
+offset_right = -167.711
+offset_bottom = 436.953
 scale = Vector2(2.69089, 2.43104)
 color = Color(0.88, 0.8316, 0.616, 1)
 
 [node name="min level" type="Label" parent="."]
 layout_mode = 0
-offset_left = 75.2851
-offset_top = 12.9526
-offset_right = 320.285
-offset_bottom = 149.953
+offset_left = -376.426
+offset_top = 25.9052
+offset_right = -104.426
+offset_bottom = 162.906
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "Lvl. > "
@@ -66,10 +70,10 @@ text = "Level"
 
 [node name="cymbal" type="Label" parent="."]
 layout_mode = 0
-offset_left = 112.928
-offset_top = 246.099
-offset_right = 228.928
-offset_bottom = 301.099
+offset_left = -338.783
+offset_top = 259.052
+offset_right = -222.783
+offset_bottom = 314.052
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -84,10 +88,10 @@ texture = ExtResource("4_sgs0q")
 
 [node name="uptoms" type="Label" parent="."]
 layout_mode = 0
-offset_left = 338.783
-offset_top = 259.051
-offset_right = 454.783
-offset_bottom = 314.051
+offset_left = -112.928
+offset_top = 272.004
+offset_right = 3.07211
+offset_bottom = 327.004
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -101,10 +105,10 @@ texture = ExtResource("6_aylre")
 
 [node name="bass" type="Label" parent="."]
 layout_mode = 0
-offset_left = 602.281
-offset_top = 207.241
-offset_right = 718.281
-offset_bottom = 262.241
+offset_left = 150.57
+offset_top = 220.194
+offset_right = 266.57
+offset_bottom = 275.194
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -118,10 +122,10 @@ texture = ExtResource("8_8h11i")
 
 [node name="snare" type="Label" parent="."]
 layout_mode = 0
-offset_left = 125.475
-offset_top = 440.387
-offset_right = 241.475
-offset_bottom = 495.387
+offset_left = -326.236
+offset_top = 453.34
+offset_right = -210.236
+offset_bottom = 508.34
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -136,10 +140,10 @@ texture = ExtResource("10_65ool")
 
 [node name="floortom" type="Label" parent="."]
 layout_mode = 0
-offset_left = 338.783
-offset_top = 440.387
-offset_right = 454.783
-offset_bottom = 495.387
+offset_left = -112.928
+offset_top = 453.34
+offset_right = 3.07211
+offset_bottom = 508.34
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -154,10 +158,10 @@ texture = ExtResource("12_ocvj8")
 
 [node name="hihat" type="Label" parent="."]
 layout_mode = 0
-offset_left = 614.829
-offset_top = 375.625
-offset_right = 730.829
-offset_bottom = 430.625
+offset_left = 163.118
+offset_top = 388.578
+offset_right = 279.118
+offset_bottom = 443.578
 theme_override_font_sizes/font_size = 40
 text = "sdvfvf"
 
@@ -171,10 +175,10 @@ texture = ExtResource("14_7lrm8")
 
 [node name="piano" type="Label" parent="."]
 layout_mode = 0
-offset_left = 125.475
-offset_top = 932.585
-offset_right = 233.475
-offset_bottom = 987.585
+offset_left = -326.236
+offset_top = 945.538
+offset_right = -218.236
+offset_bottom = 1000.54
 theme_override_font_sizes/font_size = 40
 text = "vbfdg"
 
@@ -209,6 +213,10 @@ text = "❌"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288.593, 518.103)
 scale = Vector2(-487.522, 0.731955)
+
+[node name="Info" parent="." instance=ExtResource("17_0jv65")]
+position = Vector2(313.688, 12.9526)
+scale = Vector2(2.12207, 2.12207)
 
 [connection signal="body_shape_entered" from="boundry" to="." method="_on_boundry_body_shape_entered"]
 [connection signal="body_shape_exited" from="boundry" to="." method="_on_boundry_body_shape_exited"]

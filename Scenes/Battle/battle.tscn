@@ -227,7 +227,7 @@ offset_bottom = 40.0
 
 [node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/FightMenu"]
 texture_filter = 1
-position = Vector2(420, 272)
+position = Vector2(424, 272)
 scale = Vector2(3, 2)
 texture = ExtResource("16_wuoch")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cpojh1uvofyu7"]
+[gd_scene load_steps=43 format=4 uid="uid://cpojh1uvofyu7"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/drum/drumworld.gd" id="1_gl2wk"]
 [ext_resource type="PackedScene" uid="uid://bnyjx4jfwpyc0" path="res://Scenes/Player/player.tscn" id="1_qpe5h"]
@@ -11,8 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://djprryimrs1b5" path="res://Assets/Sprites/drumworld/hiddenbassdrum.png" id="7_4cwhs"]
 [ext_resource type="Texture2D" uid="uid://c8ms5aelt8kl2" path="res://Assets/Sprites/drumworld/hiddenfloortom.png" id="8_q5cwl"]
 [ext_resource type="Texture2D" uid="uid://hy7hr507cnnn" path="res://Assets/Sprites/drumworld/cymbal.png" id="9_f6703"]
+[ext_resource type="Texture2D" uid="uid://c5xqq2dsp7ebc" path="res://Assets/Sprites/portal.png" id="10_bh3na"]
 [ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="12_x68g3"]
 [ext_resource type="PackedScene" uid="uid://bs5h1dtetjil6" path="res://Scenes/Levels/info.tscn" id="13_kqu0r"]
+[ext_resource type="PackedScene" uid="uid://ddokpcx0w4jmq" path="res://Scenes/zbutt.tscn" id="14_5nmem"]
+[ext_resource type="AudioStream" uid="uid://ct7105knkqcs7" path="res://Assets/Music/drumset/cymbal.mp3" id="14_dafc5"]
+[ext_resource type="AudioStream" uid="uid://dmcv6udscahno" path="res://Assets/Music/drumset/hihat.mp3" id="15_dktcw"]
+[ext_resource type="AudioStream" uid="uid://bik56ctlq1tcc" path="res://Assets/Music/drumset/snare.mp3" id="16_dc6yj"]
+[ext_resource type="AudioStream" uid="uid://bpohcnm73ttae" path="res://Assets/Music/drumset/bass.mp3" id="17_gic7m"]
+[ext_resource type="AudioStream" uid="uid://cmgsdtvr5sodh" path="res://Assets/Music/drumset/hightom.mp3" id="18_7wh3f"]
+[ext_resource type="AudioStream" uid="uid://2nr3sa4765vs" path="res://Assets/Music/drumset/medtom.mp3" id="19_4utdc"]
+[ext_resource type="AudioStream" uid="uid://dytsj8eraai7l" path="res://Assets/Music/drumset/floortom.mp3" id="20_w35uw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bywdg"]
 texture = ExtResource("3_3150f")
@@ -251,6 +260,13 @@ shape = SubResource("RectangleShape2D_t8dkf")
 position = Vector2(-180, 224)
 shape = SubResource("CircleShape2D_37gvf")
 
+[node name="Sprite2D" type="Sprite2D" parent="home"]
+position = Vector2(-180, 224)
+rotation = 1.5708
+scale = Vector2(0.304991, 0.304991)
+texture = ExtResource("10_bh3na")
+flip_h = true
+
 [node name="Player" parent="." instance=ExtResource("1_qpe5h")]
 position = Vector2(-180, 188)
 
@@ -272,8 +288,35 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_x68g3")
 
 [node name="Info" parent="Player" instance=ExtResource("13_kqu0r")]
-position = Vector2(-60, -80)
+visible = false
+position = Vector2(-52, -80)
 scale = Vector2(0.324405, 0.324405)
+
+[node name="Zbutt" parent="Player" instance=ExtResource("14_5nmem")]
+position = Vector2(-92, 44)
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="cymbal" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("14_dafc5")
+
+[node name="hihat" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("15_dktcw")
+
+[node name="snare" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("16_dc6yj")
+
+[node name="bass" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("17_gic7m")
+
+[node name="hightom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("18_7wh3f")
+
+[node name="medtom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("19_4utdc")
+
+[node name="floortom" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("20_w35uw")
 
 [connection signal="body_shape_entered" from="orgs/bass" to="." method="_on_bass_body_shape_entered"]
 [connection signal="body_shape_exited" from="orgs/bass" to="." method="_on_bass_body_shape_exited"]

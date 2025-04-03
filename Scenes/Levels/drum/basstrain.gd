@@ -93,6 +93,7 @@ func _process(delta: float) -> void:
 func songdone():
 	if score >= 0.6*16:
 		GameManager.playerInfo["unlocked"]["drumset"][1]["bass"] = true
+		GameManager.instrumentLevels["bass"] += 1
 	GameManager.world = "Levels/drum/drumworld.tscn"
 	GameManager.change_scene(GameManager.world)
 	
@@ -122,7 +123,10 @@ func draw_note(type:String,location:Vector2i,notepos:int, n:int):
 	icon.position.y = location.y;
 	icon.scale = Vector2(2,2)
 	icon.centered = false;
-	icon.texture = load("res://Assets/Sprites/drumworld/quarterreg.png")
+	if type == "rest":
+		icon.texture = load("res://Assets/Sprites/drumworld/rest.png")
+	else:
+		icon.texture = load("res://Assets/Sprites/drumworld/quarterreg.png")
 	var e = StaticBody2D.new()
 	
 	var collision_shape = CollisionShape2D.new()

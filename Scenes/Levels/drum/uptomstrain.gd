@@ -129,6 +129,7 @@ func _process(delta: float) -> void:
 func songdone():
 	if score >= 0.6*16:
 		GameManager.playerInfo["unlocked"]["drumset"][1]["uptoms"] = true
+		GameManager.instrumentLevels["uptoms"] += 1
 	GameManager.world = "Levels/drum/drumworld.tscn"
 	GameManager.change_scene(GameManager.world)
 	
@@ -161,7 +162,10 @@ func draw_note(type:String,location:Vector2i,notepos:int, n:int,highormed:String
 	icon.position.y = location.y;
 	icon.scale = Vector2(2,2)
 	icon.centered = false;
-	icon.texture = load("res://Assets/Sprites/drumworld/quarterreg.png")
+	if type == "rest":
+		icon.texture = load("res://Assets/Sprites/drumworld/rest.png")
+	else:
+		icon.texture = load("res://Assets/Sprites/drumworld/quarterreg.png")
 	var e = StaticBody2D.new()
 	
 	var collision_shape = CollisionShape2D.new()
@@ -177,7 +181,7 @@ func draw_note(type:String,location:Vector2i,notepos:int, n:int,highormed:String
 	e.name = type+str(n)
 	if highormed == "high":
 		highcollisions.append(e)
-		get_node("./mednotes/").add_child(e);
+		get_node("./highnotes/").add_child(e);
 	elif highormed == "med":
 		medcollisions.append(e)
 		get_node("./mednotes/").add_child(e);

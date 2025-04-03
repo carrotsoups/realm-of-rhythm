@@ -8,6 +8,8 @@ extends Node2D
 @onready var doneRecording = false
 @onready var camera:Camera2D = get_node("./Camera2D")
 @onready var submittedSong = {"piano":[],"drum":[]}
+@onready var isInfoOpen = false
+@onready var infoRect:Node2D = get_node("./Camera2D/Info")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.played = {"piano":[],"drum":[]}
@@ -67,7 +69,13 @@ func calculate_score(submittedSong:Dictionary,reqs:Dictionary=GameManager.menuRe
 		drumscore = 0
 		scores["drums"][1] = 0
 	else:
-		pass
+		for p in ["bass","snare","hihat","floortom","uptoms"]:
+			if str(reqs[p]) == "X":
+				drumscore -= 20*submittedSong["drum"].count(p)
+			else:
+				drumscore += 10*submittedSong["drum"].count(p)
+				if GameManager.instrumentLevels[p] < reqs[p]:
+					drumscore -= 100
 		
 	
 	if reqs["level"] > GameManager.playerInfo["level"]:
@@ -131,6 +139,13 @@ func _process(delta: float) -> void:
 		posdrum = 0
 		pospiano = 0
 		camera.position.x += 150
+		
+	if Input.is_action_just_pressed("open_menu"):
+		isInfoOpen = not isInfoOpen
+		if isInfoOpen:
+			infoRect.show()
+		else:
+			infoRect.hide()
 		
 	if recordbutt.name == "recording":
 		if Input.is_action_just_released("drumrest"):

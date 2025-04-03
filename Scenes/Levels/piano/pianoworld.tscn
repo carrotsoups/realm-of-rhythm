@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://mhsvonbeubon"]
+[gd_scene load_steps=33 format=4 uid="uid://mhsvonbeubon"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/piano/pianoworld.gd" id="1_djpoc"]
 [ext_resource type="Texture2D" uid="uid://cvkba0ycmpsgd" path="res://Assets/Tiles/Piano_tilemap.png" id="2_jl51x"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c2fkt0wr8b88k" path="res://Scenes/Levels/piano/recordbutton.tscn" id="7_adbah"]
 [ext_resource type="Texture2D" uid="uid://bbpj83v3ycic7" path="res://Assets/Sprites/player/unlocking.png" id="9_em1gv"]
 [ext_resource type="Texture2D" uid="uid://ck6efe7ildf7k" path="res://Assets/Sprites/set.png" id="10_qui8v"]
+[ext_resource type="PackedScene" uid="uid://ddokpcx0w4jmq" path="res://Scenes/zbutt.tscn" id="11_ib0br"]
+[ext_resource type="Texture2D" uid="uid://c5xqq2dsp7ebc" path="res://Assets/Sprites/portal.png" id="12_by2mw"]
 [ext_resource type="Texture2D" uid="uid://b2pnqj4qps8jy" path="res://Assets/Sprites/pianoworld/lightup.png" id="14_wt5cb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fhjw"]
@@ -319,5 +321,14 @@ visible = false
 position = Vector2(250.035, 168.257)
 scale = Vector2(0.305928, 0.305928)
 texture = ExtResource("10_qui8v")
+
+[node name="Zbutt" parent="." instance=ExtResource("11_ib0br")]
+position = Vector2(20, 260)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(472, 180)
+scale = Vector2(-0.324403, 0.341972)
+texture = ExtResource("12_by2mw")
+flip_h = true
 
 [connection signal="body_entered" from="returntoworld" to="." method="_on_returntoworld_body_entered"]

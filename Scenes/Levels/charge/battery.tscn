@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://u6ay28s5djf7"]
+[gd_scene load_steps=6 format=3 uid="uid://u6ay28s5djf7"]
 
 [ext_resource type="Texture2D" uid="uid://tdx260pmspfn" path="res://Assets/Sprites/Battle/player.png" id="1_dx1y8"]
 [ext_resource type="Script" path="res://Scenes/Levels/charge/battery.gd" id="1_f6fqa"]
 [ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="2_62sj6"]
 [ext_resource type="PackedScene" uid="uid://bs5h1dtetjil6" path="res://Scenes/Levels/info.tscn" id="4_t2vw5"]
+[ext_resource type="PackedScene" uid="uid://nqugqyl6qdpw" path="res://Scenes/cbutt.tscn" id="5_jp3j5"]
 
 [node name="battery" type="Node2D"]
 script = ExtResource("1_f6fqa")
@@ -34,3 +35,10 @@ position = Vector2(144, -4)
 position = Vector2(124, -136)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-64, 140)
+texture = ExtResource("2_62sj6")
+
+[node name="Cbutt" parent="." instance=ExtResource("5_jp3j5")]
+position = Vector2(-24, -164)

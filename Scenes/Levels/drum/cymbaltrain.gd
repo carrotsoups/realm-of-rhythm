@@ -93,6 +93,7 @@ func _process(delta: float) -> void:
 func songdone():
 	if score >= 0.6*16:
 		GameManager.playerInfo["unlocked"]["drumset"][1]["cymbal"] = true
+		GameManager.instrumentLevels["cymbal"] += 1
 	GameManager.world = "Levels/drum/drumworld.tscn"
 	GameManager.change_scene(GameManager.world)
 	

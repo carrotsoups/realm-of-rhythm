@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dg1u0bixec1lv"]
+[gd_scene load_steps=15 format=3 uid="uid://dg1u0bixec1lv"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/drum/hihattrain.gd" id="1_qtx71"]
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="2_lxixn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://clubuhnf4hswr" path="res://Assets/Sprites/drumworld/drumnotes.png" id="4_vwby1"]
 [ext_resource type="Script" path="res://Scenes/Levels/drum/path_2d.gd" id="5_nqr3v"]
 [ext_resource type="Texture2D" uid="uid://1atn8di0d2dn" path="res://Assets/Sprites/drumworld/bar.png" id="6_qwdpb"]
+[ext_resource type="Texture2D" uid="uid://cffd8hs31q4fh" path="res://Assets/Sprites/drumworld/drumhihat.png" id="7_ux4wn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2fv1"]
 load_path = "res://.godot/imported/drumnotes.png-a2fd817e46c115973aa92aa6ed7870ff.ctex"
@@ -107,6 +108,7 @@ texture = ExtResource("2_lxixn")
 
 [node name="hihat" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yl54v")
+volume_db = 5.663
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -156,18 +158,41 @@ rotation = 1.66723
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_udxic")
 
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D"]
+position = Vector2(144.504, 55.8172)
+rotation = 0.083185
+texture = ExtResource("7_ux4wn")
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = -247.988
+offset_top = 4.63823
+offset_right = -207.988
+offset_bottom = 44.6382
+
+[node name="Label" type="Label" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = -239.988
+offset_top = 4.61764
+offset_right = -199.988
+offset_bottom = 46.6176
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "R"
+
 [node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
-offset_left = 4.07108
-offset_top = -43.8146
-offset_right = 44.0711
-offset_bottom = -3.81455
+offset_left = 57.0
+offset_top = -48.0
+offset_right = 245.0
+offset_bottom = 180.0
+rotation = 0.0830458
 color = Color(0, 1, 0, 1)
 
 [node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
-offset_left = 4.07108
-offset_top = -43.8146
-offset_right = 44.0711
-offset_bottom = -3.81455
+offset_left = 57.0
+offset_top = -48.0
+offset_right = 247.0
+offset_bottom = 179.0
+rotation = 0.0852041
 color = Color(1, 0, 0, 1)
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]

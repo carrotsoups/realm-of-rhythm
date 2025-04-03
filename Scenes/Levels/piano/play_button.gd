@@ -88,6 +88,15 @@ extends Area2D
 
 func _ready():
 	get_node("./e").hide()
+	songseq = generate_song()
+	SignalManager.connect("finishedrecording",generate_song)
+	
+func generate_song():
+	var sssssong = []
+	var length:int = int(randi_range(1,10)*GameManager.playerInfo["level"]/2)
+	for x in range(length):
+		sssssong.append([notes.keys().pick_random(),randf_range(0.5,2)])
+		return sssssong
 
 		
 func _process(delta):

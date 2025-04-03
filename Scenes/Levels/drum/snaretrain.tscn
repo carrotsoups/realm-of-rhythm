@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bds6ij3xeo6vu"]
+[gd_scene load_steps=15 format=3 uid="uid://bds6ij3xeo6vu"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/drum/snaretrain.gd" id="1_aub73"]
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="2_1soak"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://clubuhnf4hswr" path="res://Assets/Sprites/drumworld/drumnotes.png" id="4_i331y"]
 [ext_resource type="Script" path="res://Scenes/Levels/drum/path_2d.gd" id="5_4kvl2"]
 [ext_resource type="Texture2D" uid="uid://1atn8di0d2dn" path="res://Assets/Sprites/drumworld/bar.png" id="6_q4dl7"]
+[ext_resource type="Texture2D" uid="uid://fri8t7wdq1sw" path="res://Assets/Sprites/drumworld/drumsnare.png" id="7_84b6h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2fv1"]
 load_path = "res://.godot/imported/drumnotes.png-a2fd817e46c115973aa92aa6ed7870ff.ctex"
@@ -155,21 +156,42 @@ position = Vector2(0.511284, -102.222)
 rotation = 0.0730051
 shape = SubResource("RectangleShape2D_d4qm7")
 
-[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
-offset_left = 74.5487
-offset_top = -22.0688
-offset_right = 114.549
-offset_bottom = 17.9312
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D"]
+position = Vector2(69.0731, 45.7103)
+rotation = 0.083185
+texture = ExtResource("7_84b6h")
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = -219.999
+offset_top = 0.566184
+offset_right = -179.999
+offset_bottom = 40.5662
+
+[node name="Label" type="Label" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = -211.999
+offset_top = 0.545624
+offset_right = -171.999
+offset_bottom = 42.5456
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "D"
 
 [node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
-offset_left = 74.5487
-offset_top = -22.0688
-offset_right = 114.549
-offset_bottom = 17.9312
+offset_left = 57.0
+offset_top = -48.0
+offset_right = 245.0
+offset_bottom = 180.0
+rotation = 0.0830458
 color = Color(0, 1, 0, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D"]
+offset_left = 57.0
+offset_top = -48.0
+offset_right = 247.0
+offset_bottom = 179.0
+rotation = 0.0852041
+color = Color(1, 0, 0, 1)
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
 [connection signal="body_exited" from="Path2D/PathFollow2D/Camera2D/RigidBody2D" to="." method="_on_rigid_body_2d_body_exited"]

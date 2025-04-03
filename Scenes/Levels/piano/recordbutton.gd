@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 			buttRecord.hide()
 			SignalManager.recordednotes.emit(recording)
 			name = "notrecording"
+			SignalManager.emit_signal("finishedrecording")
 
 		else:
 			isRecording = true

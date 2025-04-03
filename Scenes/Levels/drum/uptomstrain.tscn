@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2gqeiitc0yfy"]
+[gd_scene load_steps=16 format=3 uid="uid://2gqeiitc0yfy"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/drum/uptomstrain.gd" id="1_3xbtw"]
 [ext_resource type="Texture2D" uid="uid://hl5aew0xmr6b" path="res://Assets/Sprites/drumworld/staff.png" id="2_4pvcx"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cmgsdtvr5sodh" path="res://Assets/Music/drumset/hightom.mp3" id="4_v2efv"]
 [ext_resource type="Script" path="res://Scenes/Levels/drum/path_2d.gd" id="5_q476s"]
 [ext_resource type="Texture2D" uid="uid://1atn8di0d2dn" path="res://Assets/Sprites/drumworld/bar.png" id="6_k5j2t"]
+[ext_resource type="Texture2D" uid="uid://ovtxllwrfno5" path="res://Assets/Sprites/drumworld/drumsuptoms.png" id="8_kmrd0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2fv1"]
 load_path = "res://.godot/imported/drumnotes.png-a2fd817e46c115973aa92aa6ed7870ff.ctex"
@@ -196,12 +197,13 @@ script = ExtResource("5_q476s")
 position = Vector2(-50, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
-position = Vector2(55.7049, 45.2318)
+position = Vector2(55.9684, 55.0647)
 rotation = -0.0796891
 scale = Vector2(0.497328, 0.491687)
 skew = -0.00185537
 
 [node name="hightom" type="Node2D" parent="Path2D/PathFollow2D/Camera2D"]
+position = Vector2(0.96629, -11.961)
 
 [node name="highrigid" type="RigidBody2D" parent="Path2D/PathFollow2D/Camera2D/hightom"]
 freeze = true
@@ -220,21 +222,21 @@ position = Vector2(0.511284, -102.222)
 rotation = 0.0730051
 shape = SubResource("RectangleShape2D_l8c8d")
 
-[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/hightom"]
-offset_left = -127.516
-offset_top = 45.0992
-offset_right = -87.5154
-offset_bottom = 85.0992
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/hightom"]
-offset_left = -127.516
-offset_top = 45.0992
-offset_right = -87.5154
-offset_bottom = 85.0992
+offset_left = 144.0
+offset_top = 37.0
+offset_right = 238.0
+offset_bottom = 188.0
+rotation = 0.0830458
 color = Color(0, 1, 0, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/hightom"]
+offset_left = 145.0
+offset_top = 35.0
+offset_right = 240.0
+offset_bottom = 186.0
+rotation = 0.0852041
+color = Color(1, 0, 0, 1)
 
 [node name="medtom" type="Node2D" parent="Path2D/PathFollow2D/Camera2D"]
 position = Vector2(74.5487, -22.0688)
@@ -259,21 +261,46 @@ position = Vector2(-80.217, 1.96393)
 rotation = 0.012975
 shape = SubResource("RectangleShape2D_l8c8d")
 
-[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/medtom"]
-offset_left = -124.0
-offset_top = 84.0
-offset_right = -83.9997
-offset_bottom = 124.0
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="good" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/medtom"]
-offset_left = -124.0
-offset_top = 84.0
-offset_right = -83.9997
-offset_bottom = 124.0
+offset_left = -19.9613
+offset_top = 42.0001
+offset_right = 74.0387
+offset_bottom = 193.0
+rotation = 0.00376392
 color = Color(0, 1, 0, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="bad" type="ColorRect" parent="Path2D/PathFollow2D/Camera2D/medtom"]
+offset_left = -18.9613
+offset_top = 40.0001
+offset_right = 76.0387
+offset_bottom = 191.0
+rotation = 0.00592224
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D"]
+position = Vector2(-127.219, 134.191)
+rotation = 0.083185
+scale = Vector2(1, 1)
+texture = ExtResource("8_kmrd0")
+flip_h = true
+
+[node name="Label" type="Label" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = -64.257
+offset_top = -99.8349
+offset_right = -24.257
+offset_bottom = -57.8349
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "W"
+
+[node name="Label2" type="Label" parent="Path2D/PathFollow2D/Camera2D/Sprite2D"]
+offset_left = 51.7424
+offset_top = -100.133
+offset_right = 91.7424
+offset_bottom = -58.1334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Camera2D/hightom/highrigid" to="." method="_on_highrigid_body_entered"]
 [connection signal="body_exited" from="Path2D/PathFollow2D/Camera2D/hightom/highrigid" to="." method="_on_highrigid_body_exited"]

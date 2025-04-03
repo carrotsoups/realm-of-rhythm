@@ -74,6 +74,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("hihat"):
 		notePlayed += 1
 		noise.play()
+		print("noteplayed")
 		if currNote == null:
 			good.hide()
 			bad.show()
@@ -93,6 +94,7 @@ func _process(delta: float) -> void:
 func songdone():
 	if score >= 0.6*16:
 		GameManager.playerInfo["unlocked"]["drumset"][1]["hihat"] = true
+		GameManager.instrumentLevels["floortom"] += 1
 	GameManager.world = "Levels/drum/drumworld.tscn"
 	GameManager.change_scene(GameManager.world)
 	
@@ -122,7 +124,10 @@ func draw_note(type:String,location:Vector2i,notepos:int, n:int):
 	icon.position.y = location.y;
 	icon.scale = Vector2(2,2)
 	icon.centered = false;
-	icon.texture = load("res://Assets/Sprites/drumworld/quarterhihat.png")
+	if type == "rest":
+		icon.texture = load("res://Assets/Sprites/drumworld/rest.png")
+	else:
+		icon.texture = load("res://Assets/Sprites/drumworld/quarterhihat.png")
 	var e = StaticBody2D.new()
 	
 	var collision_shape = CollisionShape2D.new()

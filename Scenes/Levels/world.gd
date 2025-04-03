@@ -43,32 +43,47 @@ func _process(delta):
 			infoRect.show()
 		else:
 			infoRect.hide()
+			
+	"""var allUnlocked = true
+	for state in  GameManager.playerInfo["unlocked"]["drumset"][1].values():
+		if not state:
+			allUnlocked = false
+			break
+	if allUnlocked:
+		GameManager.world = "Levels/drum/drumunlocked.tscn"
+	"""
 
 
 
 func _on_pianoworldarea_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and GameManager.playerInfo["unlocked"]["piano"][0]:
-		GameManager.world = "Levels/piano/pianoworld.tscn"
-		GameManager.playerpos = get_node("./Player").position
-		GameManager.change_scene(GameManager.world)
+	if body.name == "Player":
+		if GameManager.playerInfo["unlocked"]["piano"][0]:
+			GameManager.world = "Levels/piano/pianoworld.tscn"
+			GameManager.playerpos = get_node("./Player").position
+			GameManager.change_scene(GameManager.world)
+		else:
+			var e:AnimatedSprite2D = get_node("./Player/Camera2D/locked")
+			await get_tree().create_timer(0.25).timeout
+			e.show()
+			e.play()
+			await get_tree().create_timer(2).timeout
+			e.hide()
 
-func _on_pianoworldarea_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
 
 
 func _on_drumworldarea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body.name == "Player" and GameManager.playerInfo["unlocked"]["drumset"][0]:
-		var allUnlocked = true
-		for state in  GameManager.playerInfo["unlocked"]["drumset"][1].values():
-			if not state:
-				allUnlocked = false
-				break
-		if allUnlocked:
-			GameManager.world = "Levels/drum/drumunlocked.tscn"
-		else:
+	if body.name == "Player":
+		if GameManager.playerInfo["unlocked"]["drumset"][0]:
 			GameManager.world = "Levels/drum/drumworld.tscn"
-		GameManager.playerpos = get_node("./Player").position
-		GameManager.change_scene(GameManager.world)
+			GameManager.playerpos = get_node("./Player").position
+			GameManager.change_scene(GameManager.world)
+		else:
+			var e:AnimatedSprite2D = get_node("./Player/Camera2D/locked")
+			await get_tree().create_timer(0.25).timeout
+			e.show()
+			e.play()
+			await get_tree().create_timer(2).timeout
+			e.hide()
 
 
 func _on_concertarea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

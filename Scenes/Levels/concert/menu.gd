@@ -12,6 +12,7 @@ func _ready() -> void:
 		GameManager.menuReqs = menuReqs
 		print(GameManager.menuReqs)
 		draw_reqs()
+
 		
 	
 func generate_menu_reqs():
@@ -19,15 +20,18 @@ func generate_menu_reqs():
 	d["drumallowed"] = true
 	d["level"] = GameManager.playerInfo["level"] + 2
 	if GameManager.playerInfo["unlocked"]["piano"][0]:
+		d["piano"] = GameManager.instrumentLevels["piano"] + randi_range(0,3)
 		if GameManager.playerInfo["unlocked"]["drumset"][0]:
-			for p in ["bass","snare","hihat","floortom","uptoms"]:
+			for p in ["cymbal","bass","snare","hihat","floortom","uptoms"]:
 				d[p] = GameManager.instrumentLevels[p] + randi_range(0,3)
+				d[p] = [d[p],"X"].pick_random()
 			
 		else:
 			d["piano"] = 7
 			for p in ["bass","snare","hihat","floortom","uptoms"]:
 				d[p] = "X"
 			d["cymbal"] = 2
+			
 	else:
 		for p in ["bass","snare","hihat","cymbal","floortom","uptoms"]:
 			d[p] = "X"
@@ -68,7 +72,7 @@ func draw_reqs():
 	for x in ["bass","snare","hihat","cymbal","floortom","uptoms","piano"]:
 		if x != "piano":
 			get_node("./"+x+"/Sprite2D").hide()
-		if not str(menuReqs[x]).is_valid_int() and menuReqs[x] == "X":
+		if str(menuReqs[x]) == "X":
 			get_node("./"+x+"/Sprite2D").show()
 			get_node("./"+x).text = "X"
 			continue
@@ -130,6 +134,11 @@ func _process(delta: float) -> void:
 		GameManager.zoomedIn = false
 		GameManager.world = "Levels/concert/concert.tscn"
 		GameManager.change_scene(GameManager.world)
+		
+	if GameManager.world == "Levels/concert/menu.tscn":
+		get_node("./Info").show()
+	else:
+		get_node("./Info").hide()
 	
 	
 func get_info():

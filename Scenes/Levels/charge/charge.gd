@@ -10,5 +10,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("select"):
 		GameManager.world = "Levels/charge/battery.tscn"
 		GameManager.change_scene(GameManager.world)
+	if Input.is_action_just_released("exit"):
+		GameManager.world = "Levels/world.tscn"
+		GameManager.change_scene(GameManager.world)
 		
 	
