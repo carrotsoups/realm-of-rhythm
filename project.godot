@@ -15,7 +15,7 @@ config/description="Pokemon Clone made in Godot 4.2.1
 
 RNB Games 2024
 "
-run/main_scene="res://Scenes/Levels/concert/concert.tscn"
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
