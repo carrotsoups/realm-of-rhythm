@@ -5,22 +5,22 @@ extends Node2D
 @onready var buff = 1.15
 @onready var hp_bar = $EnemyHPBar
 @onready var level_text:Label = $EnemyLv
-@onready var level = 4
+@onready var level = int(rand_relativeto_player(GameManager.playerInfo["level"]))
 @export var max_hp = 0
-var hp = 0
+@export var hp = 0
 var is_alive = true
 
 func rand_relativeto_player(initial:int)->int:
-	return randf_range(0.75,1.25)*initial
+	return randf_range(0.6,1.25)*(initial+1)
 
 func _ready():
 	SignalManager.connect("enemy_hp_changed", on_enemy_hp_changed)
-	max_hp = int(rand_relativeto_player(GameManager.playerInfo["hp"]))
+	max_hp = int(rand_relativeto_player(GameManager.playerInfo["maxHP"]))
 	hp = max_hp
 	hp_bar.max_value = max_hp
 	hp_bar.value = max_hp
 	#level = int(rand_relativeto_player(GameManager.playerInfo["level"]))
-	attack_percent = level/GameManager.playerInfo["level"]
+	attack_percent = GameManager.playerInfo["level"]/level
 	level_text.text = str(level)
 
 func get_hp():
@@ -35,7 +35,6 @@ func _process(delta):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "hit":
 		animation_player.play("attack")
-		pass
 		
 	if anim_name == "attack":
 		SignalManager.emit_signal("enemy_animation_finished")

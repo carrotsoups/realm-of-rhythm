@@ -13,6 +13,10 @@ func _ready() -> void:
 	GameManager.played = {"piano":[],"drum":[]}
 	SignalManager.connect("send_played",add_to_played)
 	SignalManager.connect("button_clicked",next_action)
+	if not GameManager.playerInfo["unlocked"]["drumset"][0]:
+		get_node("./Camera2D/Drumunlocked").hide()
+	else:
+		get_node("./Camera2D/Drumunlocked").show()
 	
 func next_action():
 	if recordbutt.name == "recording":

@@ -16,7 +16,7 @@ extends Control
 @onready var player = $CanvasLayer/Player
 @onready var canvas = $CanvasLayer
 
-@export var text_speed = 0.04
+@export var text_speed = 0.07
 
 var text_num = 0
 var is_dialog_finished = false
@@ -52,8 +52,6 @@ func _process(_delta):
 			menu.visible = true
 			is_menu_visible = true
 			attack1_btn.grab_focus()
-			attack2_btn.grab_focus()
-			attack3_btn.grab_focus()
 		else:
 			dialog.visible_characters = dialog.text.length()
 
@@ -64,10 +62,17 @@ func on_enemy_dead():
 	GameManager.playerInfo["xp"] += int(enemy.level*enemy.attack_percent*65)
 	SignalManager.xp_changed.emit()
 	anim.play("fade_out")
+	GameManager.is_battle = false
+	var batttle = get_node("Player/Battle")
+	player.remove_child(batttle)
 
 func on_player_dead():
-	show_dialog("XXX")
+	show_dialog("🪫🪫🪫")
 	anim.play("fade_out")
+	print("died")
+	GameManager.is_battle = false
+	var batttle = get_node("Player/Battle")
+	player.remove_child(batttle)
 
 	
 func move_menu_arrow(x,y):
@@ -90,9 +95,9 @@ func show_dialog(custom_text):
 
 func next_text() -> void:
 	# animate the dialog text
-	if text_num >= dialog.text.length():
+	"""if text_num >= dialog.text.length():
 		dialog.text = ""
-		return
+		return"""
 	
 	is_dialog_finished = false
 	
@@ -105,43 +110,41 @@ func next_text() -> void:
 		await text_timer.timeout
 	
 	is_dialog_finished = true
-	text_num += 1
+	#text_num += 1
 	
 	return
 
 func _on_attack_btn_1_pressed():
 	is_menu_visible = false
-	#show_dialog("Pikachu used " + attack1_btn.show_text())
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
 	var attack_value = int(enemy.attack_percent*20)
-	show_dialog("-"+str(attack_value))
+	show_dialog(str(attack_value))
 	SignalManager.enemy_hp_changed.emit(attack_value)
-
+	print(1)
 func _on_attack_btn_2_pressed():
 	is_menu_visible = false
-	#show_dialog("Pikachu used " + attack2_btn.show_text())
 	player.animation_player.play("thunder")
 	var thunder_instance = thunder_scene.instantiate()
 	canvas.add_child(thunder_instance)
 	thunder_instance.position = $CanvasLayer/FX_pos.position	
 	await get_tree().create_timer(1.0).timeout 
 	var attack_value = int(enemy.attack_percent*15)
-	show_dialog("-"+str(attack_value))
+	show_dialog(str(attack_value))
 	SignalManager.enemy_hp_changed.emit(attack_value)
+	print(2)
 	
 
 func _on_attack_btn_3_pressed():
 	is_menu_visible = false
-	#show_dialog("Pikachu used " + attack3_btn.show_text())
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout
 	var attack_value = int(enemy.attack_percent*8)
-	show_dialog("-"+str(attack_value))
+	show_dialog(str(attack_value))
 	SignalManager.enemy_hp_changed.emit(attack_value)
+	print("3")
 
 func _on_run_btn_pressed():
-	# exit battle
 	show_dialog("🚗💨")
 	anim.play("fade_out")
 
@@ -155,9 +158,14 @@ func _on_animation_player_animation_finished(anim_name):
 
 func on_enemy_turn():
 	if enemy.hp > 0:
-		show_dialog("XXX")
-		SignalManager.player_hp_changed.emit(5)
+		var cost = int(11*randf_range(0.5,1.5))
+		
+		show_dialog(str(cost))
+		
+		SignalManager.player_hp_changed.emit(cost)
+		await get_tree().create_timer(1.0).timeout 
 		enemy.animation_player.play("attack")
+		await get_tree().create_timer(1.0).timeout 
 
 func on_player_animation_finished():
 	enemy.animation_player.play("hit")

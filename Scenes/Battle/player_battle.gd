@@ -29,6 +29,7 @@ func _process(delta):
 		print("player is dead")
 		SignalManager.emit_signal("player_dead")
 		is_alive = false
+		print(hp)
 	else:
 		is_alive = true
 		

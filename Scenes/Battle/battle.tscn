@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_csni0"]
 [ext_resource type="Texture2D" uid="uid://xjwx03kajb0d" path="res://Assets/Sprites/Battle/backgrounf.png" id="2_64n83"]
 [ext_resource type="PackedScene" uid="uid://uf34ufn87ga5" path="res://Scenes/Battle/enemy.tscn" id="4_gedl8"]
-[ext_resource type="PackedScene" uid="uid://dhlaxd5mw4lkx" path="res://Scenes/Player/player_battle.tscn" id="4_k008y"]
+[ext_resource type="PackedScene" uid="uid://dhlaxd5mw4lkx" path="res://Scenes/Battle/player_battle.tscn" id="4_k008y"]
 [ext_resource type="PackedScene" uid="uid://cpqpj5l3y1vb4" path="res://Scenes/Battle/texture_button.tscn" id="6_3m0kj"]
 [ext_resource type="Texture2D" uid="uid://cjo70l7l7oarg" path="res://Assets/Sprites/Dialog/dialog_box.png" id="12_1kgsx"]
 [ext_resource type="Texture2D" uid="uid://d4k00la1nrqau" path="res://Assets/Sprites/Dialog/arrow.png" id="12_vbxdp"]
@@ -186,6 +186,7 @@ offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_csni0")
+text_speed = 0.04
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -238,6 +239,7 @@ offset_right = 432.0
 offset_bottom = 266.0
 focus_neighbor_right = NodePath("../AttackBtn2")
 focus_neighbor_bottom = NodePath("../AttackBtn3")
+focus_mode = 1
 mouse_default_cursor_shape = 2
 texture_normal = null
 text = "🎤🎵"
@@ -250,6 +252,7 @@ offset_right = 598.0
 offset_bottom = 266.0
 focus_neighbor_left = NodePath("../AttackBtn1")
 focus_neighbor_bottom = NodePath("../RunBtn")
+focus_mode = 1
 mouse_default_cursor_shape = 2
 texture_normal = null
 text = "🎤🎵🎶🎶"
@@ -262,6 +265,7 @@ offset_right = 430.0
 offset_bottom = 299.0
 focus_neighbor_top = NodePath("../AttackBtn1")
 focus_neighbor_right = NodePath("../RunBtn")
+focus_mode = 1
 mouse_default_cursor_shape = 2
 texture_normal = null
 text = "🎤🎵🎵"
@@ -274,6 +278,7 @@ offset_right = 560.0
 offset_bottom = 298.0
 focus_neighbor_left = NodePath("../AttackBtn3")
 focus_neighbor_top = NodePath("../AttackBtn2")
+focus_mode = 1
 mouse_default_cursor_shape = 2
 texture_normal = null
 text = "😶🔇"

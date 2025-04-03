@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://u6ay28s5djf7"]
+
+[ext_resource type="Texture2D" uid="uid://tdx260pmspfn" path="res://Assets/Sprites/Battle/player.png" id="1_dx1y8"]
+[ext_resource type="Script" path="res://Scenes/Levels/charge/battery.gd" id="1_f6fqa"]
+[ext_resource type="Texture2D" uid="uid://d0iqv1yxk3euu" path="res://Assets/Sprites/pianoworld/e butt.png" id="2_62sj6"]
+[ext_resource type="PackedScene" uid="uid://bs5h1dtetjil6" path="res://Scenes/Levels/info.tscn" id="4_t2vw5"]
+
+[node name="battery" type="Node2D"]
+script = ExtResource("1_f6fqa")
+
+[node name="battery" type="Label" parent="."]
+offset_left = -208.0
+offset_top = -120.0
+offset_right = 479.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 300
+text = "🔋"
+
+[node name="player" type="Sprite2D" parent="battery"]
+position = Vector2(236, 52)
+scale = Vector2(10.1866, 10.1866)
+texture = ExtResource("1_dx1y8")
+region_enabled = true
+region_rect = Rect2(101, 0, 44, 51)
+
+[node name="e" type="Sprite2D" parent="battery"]
+scale = Vector2(6.0099, 6.0099)
+texture = ExtResource("2_62sj6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, -4)
+
+[node name="Info" parent="." instance=ExtResource("4_t2vw5")]
+position = Vector2(124, -136)
+
+[node name="Timer" type="Timer" parent="."]

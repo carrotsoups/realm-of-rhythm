@@ -25,8 +25,8 @@ var playerInfo = {
 	"level": 1,
 	"xp": 0,
 	"maxXP":100,
-	"hp":0,
-	"maxHP":0,
+	"hp":48,
+	"maxHP":100,
 	"unlocked":{
 		"piano":[false,{
 			"level":1,

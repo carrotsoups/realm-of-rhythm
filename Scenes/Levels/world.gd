@@ -76,3 +76,10 @@ func _on_concertarea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_
 		GameManager.world = "Levels/concert/concert.tscn"
 		GameManager.playerpos = get_node("./Player").position
 		GameManager.change_scene(GameManager.world)
+
+
+func _on_chargearea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.name == "Player":
+		GameManager.world = "Levels/charge/charge.tscn"
+		GameManager.playerpos = get_node("./Player").position
+		GameManager.change_scene(GameManager.world)

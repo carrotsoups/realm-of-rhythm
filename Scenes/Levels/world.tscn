@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://birsviybxds7i"]
+[gd_scene load_steps=33 format=4 uid="uid://birsviybxds7i"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/world.gd" id="1_fj43f"]
 [ext_resource type="PackedScene" uid="uid://bnyjx4jfwpyc0" path="res://Scenes/Player/player.tscn" id="2_ln808"]
@@ -431,6 +431,9 @@ size = Vector2(30, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dh3yp"]
 size = Vector2(16, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe0xn"]
+size = Vector2(17, 20)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_fj43f")
 
@@ -532,9 +535,16 @@ shape = SubResource("RectangleShape2D_43efq")
 position = Vector2(200, 272)
 shape = SubResource("RectangleShape2D_dh3yp")
 
+[node name="chargearea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chargearea"]
+position = Vector2(311.5, 152)
+shape = SubResource("RectangleShape2D_pe0xn")
+
 [connection signal="body_entered" from="pianoworldarea" to="." method="_on_pianoworldarea_body_entered"]
 [connection signal="body_exited" from="pianoworldarea" to="." method="_on_pianoworldarea_body_exited"]
 [connection signal="body_shape_entered" from="drumworldarea" to="." method="_on_drumworldarea_body_shape_entered"]
 [connection signal="body_shape_entered" from="concertarea" to="." method="_on_concertarea_body_shape_entered"]
+[connection signal="body_shape_entered" from="chargearea" to="." method="_on_chargearea_body_shape_entered"]
 
 [editable path="Player/Camera2D"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	playerInfo = GameManager.playerInfo
 	
 	var hp = playerInfo["hp"]
 	xp_bar.value = playerInfo["xp"]

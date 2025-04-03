@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://lof0lrei5ng6"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/charge/charge.gd" id="1_3g7xy"]
+[ext_resource type="Texture2D" uid="uid://u1hr1k1oibcb" path="res://Scenes/Levels/charge/bkg.png" id="1_kvmh2"]
+[ext_resource type="PackedScene" uid="uid://u6ay28s5djf7" path="res://Scenes/Levels/charge/battery.tscn" id="2_yq488"]
+
+[node name="Charge" type="Node2D"]
+script = ExtResource("1_3g7xy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(0.277655, 0.277655)
+texture = ExtResource("1_kvmh2")
+
+[node name="battery" parent="." instance=ExtResource("2_yq488")]
+position = Vector2(-100, 8)
+scale = Vector2(0.0733998, 0.0733998)
