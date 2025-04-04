@@ -198,10 +198,11 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_64n83")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="CanvasLayer" instance=ExtResource("4_gedl8")]
-
 [node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(352, 96)
+
+[node name="Enemy" parent="CanvasLayer" instance=ExtResource("4_gedl8")]
+position = Vector2(264, 88)
 
 [node name="Player" parent="CanvasLayer" groups=["player_battle"] instance=ExtResource("4_k008y")]
 

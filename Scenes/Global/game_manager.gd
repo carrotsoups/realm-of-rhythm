@@ -9,7 +9,7 @@ var pathanim = "root/Scenes/Pianoworld/tile_animations/"
 var pathplay = "root/Scenes/Pianoworld/Notes/"
 var notes = {}
 var songLength = 0
-var playerpos = Vector2(138,54)
+var playerpos = Vector2(240,224)
 var zoomedIn = false
 var menuReqs = null
 var instrumentLevels = {
@@ -56,10 +56,10 @@ func _ready() -> void:
 	SignalManager.connect("xp_changed",update_level)
 	SignalManager.connect("send_played",add_to_list)
 func _process(delta: float) -> void:
-	if not playerInfo["unlocked"]["piano"][0] and playerInfo["level"] >= 5:
+	if not playerInfo["unlocked"]["piano"][0] and playerInfo["level"] >= 3:
 		SignalManager.emit_signal("pianoworldunlocked")
 		playerInfo["unlocked"]["piano"][0] = true
-	if not GameManager.playerInfo["unlocked"]["drumset"][0] and instrumentLevels["piano"] >= 2:
+	if not GameManager.playerInfo["unlocked"]["drumset"][0] and instrumentLevels["piano"] >= 5:
 		GameManager.playerInfo["unlocked"]["drumset"][0] = true
 		SignalManager.emit_signal("drumworldunlocked")
 		

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5x42fehsobi4"]
 
 [node name="Escbutt" type="Node2D"]
+scale = Vector2(0.615422, 0.615422)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 92.0

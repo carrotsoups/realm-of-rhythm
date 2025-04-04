@@ -146,6 +146,10 @@ func _process(delta: float) -> void:
 			infoRect.show()
 		else:
 			infoRect.hide()
+			
+	if Input.is_action_just_released("exit"):
+		GameManager.world = "Levels/world.tscn"
+		GameManager.change_scene(GameManager.world)
 		
 	if recordbutt.name == "recording":
 		if Input.is_action_just_released("drumrest"):

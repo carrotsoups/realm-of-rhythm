@@ -93,7 +93,7 @@ func _ready():
 	
 func generate_song():
 	var sssssong = []
-	var length:int = int(randi_range(1,10)*GameManager.playerInfo["level"]/2)
+	var length:int = int(randi_range(1,10)*GameManager.playerInfo["level"])
 	for x in range(length):
 		sssssong.append([notes.keys().pick_random(),randf_range(0.5,2)])
 		return sssssong

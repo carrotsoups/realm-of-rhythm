@@ -280,7 +280,6 @@ color = Color(1, 0, 0, 1)
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D"]
 position = Vector2(-127.219, 134.191)
 rotation = 0.083185
-scale = Vector2(1, 1)
 texture = ExtResource("8_kmrd0")
 flip_h = true
 

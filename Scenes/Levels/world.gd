@@ -6,10 +6,7 @@ extends Node2D
 
 
 func _ready():
-	var temppos = GameManager.playerpos
-	temppos.x -= 10
-	temppos.y += 10
-	get_node("./Player").position = temppos
+	get_node("./Player").position = GameManager.playerpos
 	
 	world_music.play()
 	infoRect.hide()
@@ -59,7 +56,7 @@ func _on_pianoworldarea_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if GameManager.playerInfo["unlocked"]["piano"][0]:
 			GameManager.world = "Levels/piano/pianoworld.tscn"
-			GameManager.playerpos = get_node("./Player").position
+			GameManager.playerpos = Vector2(960,-160)
 			GameManager.change_scene(GameManager.world)
 		else:
 			var e:AnimatedSprite2D = get_node("./Player/Camera2D/locked")
@@ -75,7 +72,7 @@ func _on_drumworldarea_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 	if body.name == "Player":
 		if GameManager.playerInfo["unlocked"]["drumset"][0]:
 			GameManager.world = "Levels/drum/drumworld.tscn"
-			GameManager.playerpos = get_node("./Player").position
+			GameManager.playerpos = Vector2(-454,736)
 			GameManager.change_scene(GameManager.world)
 		else:
 			var e:AnimatedSprite2D = get_node("./Player/Camera2D/locked")
@@ -89,12 +86,12 @@ func _on_drumworldarea_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 func _on_concertarea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name == "Player":
 		GameManager.world = "Levels/concert/concert.tscn"
-		GameManager.playerpos = get_node("./Player").position
+		GameManager.playerpos = Vector2(812,640)
 		GameManager.change_scene(GameManager.world)
 
 
 func _on_chargearea_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name == "Player":
 		GameManager.world = "Levels/charge/charge.tscn"
-		GameManager.playerpos = get_node("./Player").position
+		GameManager.playerpos = Vector2(-60,-128)
 		GameManager.change_scene(GameManager.world)
