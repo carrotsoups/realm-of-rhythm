@@ -14,12 +14,14 @@ extends Control
 @onready var menu = $CanvasLayer/UI/PlayerMenu
 @onready var menu_arrow = $CanvasLayer/UI/PlayerMenu/FightMenu/MenuArrow
 @onready var player = $CanvasLayer/Player
+@onready var run_butt = $CanvasLayer/UI/PlayerMenu/FightMenu/RunBtn
 @onready var canvas = $CanvasLayer
 
 @export var text_speed = 0.07
 
 var text_num = 0
 var is_dialog_finished = false
+var in_text = false
 var is_menu_visible = false
 var begin_battle = false
 
@@ -43,17 +45,20 @@ func _process(_delta):
 		show_dialog("🎵🎵🎵🎵🎵🎵🎵🎵")
 		begin_battle = false
 		
-	if Input.is_action_just_pressed("ui_accept") and !is_menu_visible and enemy.hp > 0:
-		if is_dialog_finished:
+	if is_dialog_finished:
+		if !in_text and Input.is_action_just_pressed("ui_accept") and !is_menu_visible and enemy.hp > 0:
 			dialog.visible = false
 			dialog_box.visible = false
 			click_to_continue.visible = false
 			anim.play("hide")
 			menu.visible = true
 			is_menu_visible = true
-			attack1_btn.grab_focus()
+			in_text = false
+			#run_butt.grab_focus()
+			print("allowed to input")
 		else:
 			dialog.visible_characters = dialog.text.length()
+	
 
 func on_enemy_dead():
 	# exit battle
@@ -82,6 +87,7 @@ func move_menu_arrow(x,y):
 
 func show_dialog(custom_text):
 	# show dialog box with custom text.
+	in_text = true
 	GameManager.is_dialog = true
 	dialog_box.visible = true
 	menu.visible = false
@@ -90,7 +96,8 @@ func show_dialog(custom_text):
 	click_to_continue.visible = true
 	text_timer.wait_time = text_speed
 	anim.play("blink")
-	next_text()
+	await next_text()
+	in_text = false
 	dialog.text = str(custom_text)
 
 func next_text() -> void:
@@ -110,7 +117,6 @@ func next_text() -> void:
 		await text_timer.timeout
 	
 	is_dialog_finished = true
-	#text_num += 1
 	
 	return
 
@@ -155,12 +161,13 @@ func _on_animation_player_animation_finished(anim_name):
 		
 	if anim_name == "fade_in":
 		begin_battle = true
+	attack1_btn.grab_focus()
 
 func on_enemy_turn():
 	if enemy.hp > 0:
 		var cost = int(11*randf_range(0.5,1.5))
 		
-		show_dialog(str(cost))
+		#show_dialog(str(cost))
 		
 		SignalManager.player_hp_changed.emit(cost)
 		await get_tree().create_timer(1.0).timeout 
